@@ -1596,56 +1596,86 @@ const SAMPLES = [
  },
  {
   "name": "지쿱 고농축 섬유유연제",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p10.pdf",
     "save": "지쿱고농축섬유유연제_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/5_1.jpg",
+    "thumb": "samples/thumbs/x_5_1.jpg",
+    "save": "지쿱고농축섬유유연제_이미지1.jpg"
    }
   ]
  },
  {
   "name": "지쿱 고농축 세탁세제",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p11.pdf",
     "save": "지쿱고농축세탁세제_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/3_1.jpg",
+    "thumb": "samples/thumbs/x_3_1.jpg",
+    "save": "지쿱고농축세탁세제_이미지1.jpg"
    }
   ]
  },
  {
   "name": "지쿱 고농축 주방세제",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p12.pdf",
     "save": "지쿱고농축주방세제_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/4_1.jpg",
+    "thumb": "samples/thumbs/x_4_1.jpg",
+    "save": "지쿱고농축주방세제_이미지1.jpg"
    }
   ]
  },
  {
   "name": "케어셀라 비너스필",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p35.pdf",
     "save": "케어셀라비너스필_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/1_1.jpg",
+    "thumb": "samples/thumbs/x_1_1.jpg",
+    "save": "케어셀라비너스필_이미지1.jpg"
    }
   ]
  },
  {
   "name": "케어셀라 선크림",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p36.pdf",
     "save": "케어셀라선크림_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/2_1.jpg",
+    "thumb": "samples/thumbs/x_2_1.jpg",
+    "save": "케어셀라선크림_이미지1.jpg"
    }
   ]
  },
@@ -1662,34 +1692,58 @@ const SAMPLES = [
  },
  {
   "name": "케어셀라 하이드라 수딩 마스크 팩",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p39.pdf",
     "save": "케어셀라하이드라수딩마스크팩_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/6_1.png",
+    "thumb": "samples/thumbs/x_6_1.jpg",
+    "save": "케어셀라하이드라수딩마스크팩_이미지1.png"
    }
   ]
  },
  {
   "name": "케어셀라 훼이셜 라인업 리프팅겔 클렌저",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p45.pdf",
     "save": "케어셀라훼이셜라인업리프팅겔클렌저_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/7_1.png",
+    "thumb": "samples/thumbs/x_7_1.jpg",
+    "save": "케어셀라훼이셜라인업리프팅겔클렌저_이미지1.png"
    }
   ]
  },
  {
   "name": "텔로메라 미스트",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p47.pdf",
     "save": "텔로메라미스트_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/8_1.jpg",
+    "thumb": "samples/thumbs/x_8_1.jpg",
+    "save": "텔로메라미스트_이미지1.jpg"
+   },
+   {
+    "label": "이미지 2",
+    "path": "samples/x/8_2.png",
+    "thumb": "samples/thumbs/x_8_2.jpg",
+    "save": "텔로메라미스트_이미지2.png"
    }
   ]
  },
