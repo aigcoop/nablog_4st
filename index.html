@@ -97,6 +97,12 @@ nav.chips{margin-top:22px}
 .actions{display:flex;gap:8px}
 .actions .copy{flex:1;min-width:0}
 .share{flex:none;border:1.5px solid var(--green);background:var(--card);color:var(--green);font-weight:700;font-size:1.05rem;border-radius:12px;padding:13px 18px}
+.empty{background:var(--soft);border-radius:12px;padding:16px;font-size:.95rem;color:var(--muted)}
+.thumbs{display:flex;gap:8px;overflow-x:auto}
+.thumbs img{height:110px;width:auto;border-radius:10px;border:1px solid var(--line);flex:none}
+.files{list-style:none;margin:0;padding:0}
+.files li{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.92rem;padding:8px 0;border-bottom:1px solid var(--line)}
+.files a{flex:none;color:var(--green);font-weight:700;text-decoration:none;white-space:nowrap;padding:4px 0}
 </style>
 </head>
 <body>
@@ -258,7 +264,14 @@ const PARTS = [
 - 화면 글씨는 핵심 단어 위주로 크고 짧게, 한 화면에 15자 이내로 넣어 주세요.
 - 제품이 나오는 장면은 소스에 있는 제품사진의 형태와 100% 일치되게 해 주세요.
 - 전체적으로 밝고 신뢰감 있는 색감을 유지해 주세요.`}
- ]}
+ ]},
+ {id:"materials", chip:"실습용 자료", title:"실습용 자료", pages:"제품별 다운로드와 공유", sub:"제품설명서와 제품사진", items:[]}
+];
+
+/* 실습용 자료: 제품을 추가할 때 아래 목록에 한 줄씩 넣어요.
+   {name:"제품명", files:[{label:"제품설명서", path:"materials/p01/manual.pdf", save:"제품명_제품설명서.pdf"},
+                          {label:"제품사진 1", path:"materials/p01/photo1.jpg", save:"제품명_사진1.jpg"}]} */
+const MATERIALS = [
 ];
 
 let CAN_SHARE=false;
@@ -284,7 +297,7 @@ chips.innerHTML='<a href="#home" data-go="">처음 화면</a><a href="#all" data
 menu.innerHTML='<a class="all" href="#all" data-go="all"><span>전체 보기<small>프롬프트 '+total+'개를 순서대로 모두 보기</small></span></a>';
 PARTS.forEach(p=>{
   const idx=PARTS.indexOf(p)+1, ns=p.items.filter(i=>i.n).map(i=>i.n.split("-")[0]);
-  const range=ns.length?("프롬프트 "+(ns[0]===ns[ns.length-1]?ns[0]:ns[0]+"~"+ns[ns.length-1])+"번"):"화면 따라하기";
+  const range=p.sub?p.sub:ns.length?("프롬프트 "+(ns[0]===ns[ns.length-1]?ns[0]:ns[0]+"~"+ns[ns.length-1])+"번"):"화면 따라하기";
   const a=document.createElement("a");a.href="#"+p.id;a.dataset.go=p.id;a.textContent=idx+" "+p.chip;chips.appendChild(a);
   const m=document.createElement("a");m.href="#"+p.id;m.dataset.go=p.id;
   m.innerHTML='<span class="no">'+idx+'</span><span>'+p.chip+'<small>'+range+' · '+p.pages+'</small></span>';menu.appendChild(m);
@@ -335,6 +348,41 @@ PARTS.forEach(p=>{
   main.appendChild(sec);
 });
 updateCount();
+
+(function(){
+  const stack=document.querySelector("#sec-materials .stack");
+  if(!MATERIALS.length){
+    const d=document.createElement("div");d.className="empty";
+    d.textContent="아직 등록된 제품이 없어요. 제품이 추가되면 여기에서 제품설명서와 제품사진을 받을 수 있어요.";
+    stack.appendChild(d);return;
+  }
+  const isImg=f=>/\.(jpe?g|png|webp|gif)$/i.test(f.path);
+  MATERIALS.forEach((m,i)=>{
+    const c=document.createElement("article");c.className="card";
+    const imgs=m.files.filter(isImg);
+    c.innerHTML='<div class="card-head"><div class="num">'+(i+1)+'</div><div><h3>'+esc(m.name)+'</h3><span class="pages">파일 '+m.files.length+'개</span></div></div>'+
+      (imgs.length?'<div class="thumbs">'+imgs.map(f=>'<img src="'+f.path+'" alt="'+esc(m.name+" "+f.label)+'" loading="lazy">').join("")+'</div>':'')+
+      '<ul class="files">'+m.files.map(f=>'<li><span>'+esc(f.label)+'</span><a href="'+f.path+'" download="'+esc(f.save)+'">받기</a></li>').join("")+'</ul>'+
+      '<div class="actions"><button class="copy" type="button">모두 다운로드</button>'+(CAN_SHARE?'<button class="share" type="button">공유하기</button>':'')+'</div>';
+    const dl=c.querySelector(".copy"),sh=c.querySelector(".share");
+    dl.addEventListener("click",()=>{
+      c.querySelectorAll(".files a").forEach((a,k)=>setTimeout(()=>a.click(),k*700));
+      dl.textContent="다운로드를 시작했어요";setTimeout(()=>{dl.textContent="모두 다운로드"},2500);
+    });
+    if(sh) sh.addEventListener("click",async()=>{
+      sh.textContent="준비 중";
+      try{
+        const files=await Promise.all(m.files.map(async f=>{const b=await (await fetch(f.path)).blob();return new File([b],f.save,{type:b.type})}));
+        if(navigator.canShare&&!navigator.canShare({files})) throw new Error("unsupported");
+        await navigator.share({files});sh.textContent="공유하기";
+      }catch(e){
+        if(e&&e.name==="AbortError"){sh.textContent="공유하기";return}
+        sh.textContent="공유 안 됨";setTimeout(()=>{sh.textContent="공유하기"},2500);
+      }
+    });
+    stack.appendChild(c);
+  });
+})();
 
 function show(id,scroll){
   const ok=id==="all"||PARTS.some(p=>p.id===id);
