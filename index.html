@@ -134,6 +134,16 @@ header.top{padding-bottom:0}
 .bundle-head b{font-size:1.1rem}
 .bundle-head span{font-size:.88rem;color:var(--muted)}
 .bundle .card{border:0;border-top:1px dashed var(--line);border-radius:0;background:transparent;padding:14px 0}
+details.fold{border:2px solid var(--line);border-radius:18px;background:var(--card)}
+details.fold[open]{border-color:var(--green)}
+details.fold summary{display:flex;align-items:center;gap:12px;cursor:pointer;list-style:none;padding:16px;font-weight:700;font-size:1.15rem;line-height:1.3}
+details.fold summary::-webkit-details-marker{display:none}
+details.fold summary small{display:block;margin-top:3px;font-size:.82rem;font-weight:500;color:var(--muted)}
+details.fold[open] summary .chev{transform:rotate(90deg)}
+.fold-body{display:flex;flex-direction:column;gap:12px;padding:0 12px 12px}
+.fold-body .card{background:var(--paper)}
+.fold-body pre.prompt{background:var(--card)}
+.fold-body label.fill input{background:var(--card)}
 </style>
 </head>
 <body>
@@ -251,21 +261,21 @@ const PARTS = [
   {note:"글쓰기 환경 설정은 교안 화면과 똑같이 맞춰요.", pages:"교안 20~21쪽"},
   {note:"글쓰기 전에 카테고리, 주제, 검색 허용 여부를 선택해요.", pages:"교안 22~26쪽"}
  ]},
- {id:"write", group:"post", chip:"노트북 글쓰기", title:"Gemini Notebook 블로그 글쓰기", pages:"교안 27~47쪽", items:[
-  {note:"새 노트를 만들고 제품설명서 파일과 제품사진 2~3장을 소스로 올려요.", pages:"교안 28~29쪽"},
-  {n:"7-1", choice:"제목 프롬프트 4개 중 하나만 골라요", title:"제목 추천 · 기본형 (추천)", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30~32쪽", text:"소스를 바탕으로 네이버 블로그에 쓸 제목을 추천해줘. 검색 유입형, 후기형, 호기심 유발형으로 나눠서 10개를 추천해줘. (특수기호 없음, 길지 않게)"},
-  {n:"7-2", title:"제목 추천 · 타깃 독자형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"이 제품을 가장 필요로 할 사람(타깃) 그룹을 정하고 각 타깃이 바로 클릭할 만한 블로그 제목 3개씩 추천해줘. (특수기호 없음, 길지 않게)"},
-  {n:"7-3", title:"제목 추천 · 상위노출형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"네이버 검색 상위 노출에 유리한 핵심 키워드, 효능 등을 넣어서 20자 이내 제목 10개 추천해줘. (특수기호 없음, 길지 않게)"},
-  {n:"7-4", title:"제목 추천 · 솔직 후기형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"광고 티 안 나고 찐 사용 후기 느낌 나는 네이버 블로그 제목으로 7개 제안해줘. 'n주 써본 솔직후기', '정착 이유' 같은 느낌이 들어가게 추천해줘. (특수기호 없음, 길지 않게)"},
-  {n:"8-1", choice:"글쓰기 프롬프트 2개 중 하나만 골라요", title:"블로그 글 작성 · 한 줄 추가형", where:"스튜디오 → <strong>보고서</strong> → <strong>블로그 게시물</strong> 연필 → 기존 내용은 그대로 두고 <strong>맨 아래</strong>에 붙여넣기", pages:"교안 33~34쪽", fill:"고른 제목", ph:"7번에서 고른 제목을 붙여넣어요", text:"제목: {{v}}\n위 제목과 함께 네이버 블로그 로직에 최적화 된 글을 작성해줘\n글의 마지막에는 글의 주제에 맞는 네이버 블로그 검색용 해시태그 8개를 만들어줘"},
-  {n:"8-2", title:"블로그 글 작성 · 상세형", where:"스튜디오 → <strong>보고서</strong> → <strong>블로그 게시물</strong> 연필 → 맨 아래에 붙여넣기", pages:"교안 33~34쪽", fill:"고른 제목", ph:"7번에서 고른 제목을 붙여넣어요", text:WRITE_FULL},
-  {note:"완성된 블로그 글을 복사해 소스 추가 → 복사한 텍스트로 넣고, 글 소스와 제품사진만 선택해요.", pages:"교안 35~36쪽"},
-  {n:"9-1", choice:"이미지 프롬프트 2개 중 하나만 골라요", title:"블로그 이미지 8장 만들기 · 상세형", where:"스튜디오 → <strong>슬라이드</strong> 연필 → 붙여넣기", pages:"교안 36쪽", text:SLIDES},
-  {n:"9-2", title:"블로그 이미지 만들기 · 짧은형", where:"스튜디오 → <strong>슬라이드</strong> 연필 → 붙여넣기", pages:"교안 36쪽", text:"선택된 소스의 글의 맥락에 맞는 네이버 블로그용 이미지 슬라이드를 만들어줘. 슬라이드 형태로 만들어주고 텍스트는 없이 이미지만 있는 이미지 슬라이드 형태로 생성해줘"},
-  {note:"만들어진 슬라이드 이미지를 꾹 눌러 한 장씩 순서대로 저장해요.", pages:"교안 37쪽"},
-  {note:"글을 블로그에 붙여넣고 제목은 제목란으로 옮겨요. ** 기호는 찾아서 지우고, 소제목은 인용구로 바꾼 뒤 이미지를 맥락에 맞게 넣어요.", pages:"교안 38~44쪽"},
-  {note:"글 끝에 함께 나온 해시태그 8개를 블로그 태그 편집에 입력하고, 발행 전 기본 설정을 확인해요.", pages:"교안 45~47쪽"},
-  {note:"발행 전에 지쿱 링크오더 링크를 본문에 넣었는지 확인해요.", pages:"교안 46쪽"}
+ {id:"write", group:"post", chip:"제미나이 노트북에서 글쓰기", title:"제미나이 노트북에서 글쓰기", pages:"교안 27~47쪽", items:[
+  {fold:"title", note:"새 노트를 만들고 제품설명서 파일과 제품사진 2~3장을 소스로 올려요.", pages:"교안 28~29쪽"},
+  {fold:"title", n:"7-1", choice:"제목 프롬프트 4개 중 하나만 골라요", title:"제목 추천 · 기본형 (추천)", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30~32쪽", text:"소스를 바탕으로 네이버 블로그에 쓸 제목을 추천해줘. 검색 유입형, 후기형, 호기심 유발형으로 나눠서 10개를 추천해줘. (특수기호 없음, 길지 않게)"},
+  {fold:"title", n:"7-2", title:"제목 추천 · 타깃 독자형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"이 제품을 가장 필요로 할 사람(타깃) 그룹을 정하고 각 타깃이 바로 클릭할 만한 블로그 제목 3개씩 추천해줘. (특수기호 없음, 길지 않게)"},
+  {fold:"title", n:"7-3", title:"제목 추천 · 상위노출형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"네이버 검색 상위 노출에 유리한 핵심 키워드, 효능 등을 넣어서 20자 이내 제목 10개 추천해줘. (특수기호 없음, 길지 않게)"},
+  {fold:"title", n:"7-4", title:"제목 추천 · 솔직 후기형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"광고 티 안 나고 찐 사용 후기 느낌 나는 네이버 블로그 제목으로 7개 제안해줘. 'n주 써본 솔직후기', '정착 이유' 같은 느낌이 들어가게 추천해줘. (특수기호 없음, 길지 않게)"},
+  {fold:"write", n:"8-1", choice:"글쓰기 프롬프트 2개 중 하나만 골라요", title:"블로그 글 작성 · 한 줄 추가형", where:"스튜디오 → <strong>보고서</strong> → <strong>블로그 게시물</strong> 연필 → 기존 내용은 그대로 두고 <strong>맨 아래</strong>에 붙여넣기", pages:"교안 33~34쪽", fill:"고른 제목", ph:"7번에서 고른 제목을 붙여넣어요", text:"제목: {{v}}\n위 제목과 함께 네이버 블로그 로직에 최적화 된 글을 작성해줘\n글의 마지막에는 글의 주제에 맞는 네이버 블로그 검색용 해시태그 8개를 만들어줘"},
+  {fold:"write", n:"8-2", title:"블로그 글 작성 · 상세형", where:"스튜디오 → <strong>보고서</strong> → <strong>블로그 게시물</strong> 연필 → 맨 아래에 붙여넣기", pages:"교안 33~34쪽", fill:"고른 제목", ph:"7번에서 고른 제목을 붙여넣어요", text:WRITE_FULL},
+  {fold:"image", note:"완성된 블로그 글을 복사해 소스 추가 → 복사한 텍스트로 넣고, 글 소스와 제품사진만 선택해요.", pages:"교안 35~36쪽"},
+  {fold:"image", n:"9-1", choice:"이미지 프롬프트 2개 중 하나만 골라요", title:"블로그 이미지 8장 만들기 · 상세형", where:"스튜디오 → <strong>슬라이드</strong> 연필 → 붙여넣기", pages:"교안 36쪽", text:SLIDES},
+  {fold:"image", n:"9-2", title:"블로그 이미지 만들기 · 짧은형", where:"스튜디오 → <strong>슬라이드</strong> 연필 → 붙여넣기", pages:"교안 36쪽", text:"선택된 소스의 글의 맥락에 맞는 네이버 블로그용 이미지 슬라이드를 만들어줘. 슬라이드 형태로 만들어주고 텍스트는 없이 이미지만 있는 이미지 슬라이드 형태로 생성해줘"},
+  {fold:"image", note:"만들어진 슬라이드 이미지를 꾹 눌러 한 장씩 순서대로 저장해요.", pages:"교안 37쪽"},
+  {fold:"post", note:"글을 블로그에 붙여넣고 제목은 제목란으로 옮겨요. ** 기호는 찾아서 지우고, 소제목은 인용구로 바꾼 뒤 이미지를 맥락에 맞게 넣어요.", pages:"교안 38~44쪽"},
+  {fold:"post", note:"글 끝에 함께 나온 해시태그 8개를 블로그 태그 편집에 입력하고, 발행 전 기본 설정을 확인해요.", pages:"교안 45~47쪽"},
+  {fold:"post", note:"발행 전에 지쿱 링크오더 링크를 본문에 넣었는지 확인해요.", pages:"교안 46쪽"}
  ]},
  {id:"shorts", group:"post", chip:"쇼츠 영상", title:"블로그 글로 쇼츠 영상 만들기", pages:"교안 외 추가", items:[
   {note:"소스에서 블로그 글 소스와 제품사진만 선택해요. 다른 소스가 켜져 있으면 글과 다른 내용이 섞여요.", pages:"8번, 9번을 마친 뒤 진행"},
@@ -305,6 +315,12 @@ const MATERIALS = [
 
 let CAN_SHARE=false;
 try{CAN_SHARE=typeof navigator.share==="function"&&window.self===window.top}catch(e){}
+const FOLDS={
+ title:{t:"유형별 제목 추천",s:"프롬프트 7번 · 4가지 중 하나만 골라요"},
+ write:{t:"네이버 블로그 글쓰기 프롬프트",s:"프롬프트 8번 · 2가지 중 하나만 골라요"},
+ image:{t:"이미지 만들기 프롬프트",s:"프롬프트 9번 · 2가지 중 하나만 골라요"},
+ post:{t:"블로그에 올리기",s:"화면 따라하기 · 편집, 해시태그, 링크오더 확인"}
+};
 const KEY="blogclass-copied-v1";
 let copied=new Set();
 try{copied=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){}
@@ -328,7 +344,7 @@ menu.innerHTML=
  '<a class="allrow" href="#all" data-go="all">프롬프트 '+total+'개 한 번에 전체 보기</a>'+
  '<button type="button" class="grp-btn" data-grp="setup" aria-expanded="false"><span class="no">1</span><span>블로그 기본 세팅하기<small>스킬 만들기 · 홈편집 · 카테고리 설정</small></span><i class="chev" aria-hidden="true"></i></button>'+
  '<div class="subs" id="subs-setup" hidden></div>'+
- '<button type="button" class="grp-btn" data-grp="post" aria-expanded="false"><span class="no">2</span><span>블로그 글쓰기<small>노트북 글쓰기 · 쇼츠 영상</small></span><i class="chev" aria-hidden="true"></i></button>'+
+ '<button type="button" class="grp-btn" data-grp="post" aria-expanded="false"><span class="no">2</span><span>블로그 글쓰기<small>제미나이 노트북에서 글쓰기 · 쇼츠 영상</small></span><i class="chev" aria-hidden="true"></i></button>'+
  '<div class="subs" id="subs-post" hidden></div>'+
  '<a class="grp-btn" href="#library" data-go="library"><span class="no">3</span><span>제품 자료실<small>제품 이미지와 설명서 받기</small></span><i class="chev" aria-hidden="true"></i></a>';
 PARTS.forEach(p=>{
@@ -340,7 +356,7 @@ PARTS.forEach(p=>{
   const sec=document.createElement("section");sec.className="part";sec.id="sec-"+p.id;
   sec.innerHTML='<div class="part-head"><h2>'+p.title+'</h2><span class="pages">'+p.pages+'</span></div>';
   const stack=document.createElement("div");stack.className="stack";sec.appendChild(stack);
-  let bEl=null;
+  let bEl=null,fEl=null,fKey=null;
   p.items.forEach(it=>{
     let host=stack;
     if(it.bundle){
@@ -348,6 +364,11 @@ PARTS.forEach(p=>{
         bEl.innerHTML='<div class="bundle-head"><b>스킬 하나 만들기</b><span>한 화면에 있는 세 칸이에요. 이름, 설명, 요청사항 순서로 복사해 붙여넣어요.</span></div>';stack.appendChild(bEl)}
       host=bEl;
     }else bEl=null;
+    if(it.fold){
+      if(fKey!==it.fold){fKey=it.fold;fEl=document.createElement("details");fEl.className="fold";
+        fEl.innerHTML='<summary><span>'+FOLDS[fKey].t+'<small>'+FOLDS[fKey].s+'</small></span><i class="chev" aria-hidden="true"></i></summary><div class="fold-body"></div>';stack.appendChild(fEl)}
+      host=fEl.querySelector(".fold-body");
+    }else fKey=null;
     if(it.note){
       const d=document.createElement("div");d.className="note";
       d.innerHTML='<b>화면 따라하기</b><div>'+it.note+'<span class="pages">'+it.pages+'</span></div>';
