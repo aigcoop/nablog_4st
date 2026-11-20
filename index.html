@@ -125,7 +125,7 @@ h3.cat-head{margin:14px 0 0;font-size:1.15rem;padding-left:10px;border-left:5px 
 .grp-btn[aria-expanded="true"] .chev{transform:rotate(90deg)}
 .subs{margin:-4px 0 4px 18px;padding:10px;gap:8px}
 .subs a{font-size:1.05rem;padding:12px 14px;border-radius:12px}
-.menu a.allrow{justify-content:center;border-style:dashed;background:transparent;font-size:.95rem;font-weight:600;color:var(--muted);padding:12px}
+.menu a.allrow{justify-content:center;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font-size:1.1rem;font-weight:700;padding:15px 16px;border-radius:18px}
 .tools{margin-top:36px;padding-top:14px;border-top:1px solid var(--line)}
 body:not(.open) footer{display:none}
 header.top{padding-bottom:0}
@@ -327,12 +327,12 @@ const main=document.getElementById("main"),chips=document.getElementById("chips"
 chips.innerHTML='<a href="#home" data-go="">처음 화면</a><a href="#all" data-go="all">전체 보기</a>';
 const grpRange=g=>{const ns=PARTS.filter(p=>p.group===g).flatMap(p=>p.items.filter(i=>i.n).map(i=>i.n.split("-")[0]));return "프롬프트 "+ns[0]+"~"+ns[ns.length-1]+"번"};
 menu.innerHTML=
+ '<a class="allrow" href="#all" data-go="all">프롬프트 '+total+'개 한 번에 전체 보기</a>'+
  '<button type="button" class="grp-btn" data-grp="setup" aria-expanded="false"><span class="no">1</span><span>블로그 기본 세팅하기<small>스킬 만들기 · 홈편집 · 카테고리 설정</small></span><i class="chev" aria-hidden="true"></i></button>'+
  '<div class="subs" id="subs-setup" hidden></div>'+
  '<button type="button" class="grp-btn" data-grp="post" aria-expanded="false"><span class="no">2</span><span>블로그 글쓰기<small>노트북 글쓰기 · 편집과 업로드 · 쇼츠 영상</small></span><i class="chev" aria-hidden="true"></i></button>'+
  '<div class="subs" id="subs-post" hidden></div>'+
- '<a class="grp-btn" href="#library" data-go="library"><span class="no">3</span><span>제품 자료실<small>제품 이미지와 설명서 받기</small></span><i class="chev" aria-hidden="true"></i></a>'+
- '<a class="allrow" href="#all" data-go="all">프롬프트 '+total+'개 한 번에 전체 보기</a>';
+ '<a class="grp-btn" href="#library" data-go="library"><span class="no">3</span><span>제품 자료실<small>제품 이미지와 설명서 받기</small></span><i class="chev" aria-hidden="true"></i></a>';
 PARTS.forEach(p=>{
   const idx=PARTS.indexOf(p)+1, ns=p.items.filter(i=>i.n).map(i=>i.n.split("-")[0]);
   const range=p.sub?p.sub:ns.length?("프롬프트 "+(ns[0]===ns[ns.length-1]?ns[0]:ns[0]+"~"+ns[ns.length-1])+"번"):"화면 따라하기";
