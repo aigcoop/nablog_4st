@@ -107,21 +107,33 @@ nav.chips{margin-top:22px}
 .find{font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:100%}
 .grp{font-size:.78rem;font-weight:700;color:var(--green)}
 details.more summary{cursor:pointer;font-size:.9rem;font-weight:600;color:var(--muted);padding:4px 0}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.duo .col{display:grid;gap:10px}
-.grp-btn,.menu a.lib{display:flex;align-items:center;text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:16px;font-weight:700;font-size:1.1rem;line-height:1.3;text-decoration:none;width:100%}
-.grp-btn small,.menu a.lib small{display:block;margin-top:4px;font-size:.78rem;font-weight:500;color:var(--muted)}
 .grp-btn[aria-expanded="true"]{border-color:var(--green);box-shadow:inset 0 0 0 1.5px var(--green)}
-.menu a.lib{background:var(--green);color:var(--green-ink);border-color:var(--green);font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1.15;align-items:flex-end}
-.menu a.lib small{font-family:var(--body);color:inherit;opacity:.9;font-size:.8rem;margin-top:8px}
 .subs{display:grid;gap:8px;background:var(--soft);border-radius:16px;padding:12px}
-.subs-title{margin:0 0 2px;font-size:.85rem;font-weight:700;color:var(--muted)}
 .catbar{display:flex;flex-wrap:wrap;gap:8px}
 .catbar button{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:.92rem;font-weight:600}
 .catbar button b{font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
 .catbar button[aria-pressed="true"]{background:var(--green);color:var(--green-ink);border-color:var(--green)}
 .catbar button[aria-pressed="true"] b{color:inherit}
 h3.cat-head{margin:14px 0 0;font-size:1.15rem;padding-left:10px;border-left:5px solid var(--marker)}
+.menu{gap:12px;margin-top:18px}
+.menu .grp-btn{display:flex;align-items:center;gap:14px;text-align:left;width:100%;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:18px;padding:18px 16px;font-weight:700;font-size:1.25rem;line-height:1.3;text-decoration:none}
+.menu .grp-btn small{display:block;margin-top:3px;font-size:.82rem;font-weight:500;color:var(--muted)}
+.menu .grp-btn .no{flex:none;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--green);color:var(--green-ink);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:1.35rem;font-weight:400}
+.menu .grp-btn[aria-expanded="true"]{border-color:var(--green)}
+.chev{margin-left:auto;font-style:normal;font-size:1.5rem;color:var(--muted);line-height:1;flex:none}
+.chev::after{content:"\203A"}
+.grp-btn[aria-expanded="true"] .chev{transform:rotate(90deg)}
+.subs{margin:-4px 0 4px 18px;padding:10px;gap:8px}
+.subs a{font-size:1.05rem;padding:12px 14px;border-radius:12px}
+.menu a.allrow{justify-content:center;border-style:dashed;background:transparent;font-size:.95rem;font-weight:600;color:var(--muted);padding:12px}
+.tools{margin-top:36px;padding-top:14px;border-top:1px solid var(--line)}
+body:not(.open) footer{display:none}
+header.top{padding-bottom:0}
+.bundle{border:2px solid var(--green);border-radius:18px;background:var(--card);padding:14px 16px 4px}
+.bundle-head{display:flex;flex-direction:column;gap:2px;padding-bottom:10px}
+.bundle-head b{font-size:1.1rem}
+.bundle-head span{font-size:.88rem;color:var(--muted)}
+.bundle .card{border:0;border-top:1px dashed var(--line);border-radius:0;background:transparent;padding:14px 0}
 </style>
 </head>
 <body>
@@ -129,16 +141,15 @@ h3.cat-head{margin:14px 0 0;font-size:1.15rem;padding-left:10px;border-left:5px 
   <header class="top">
     <div class="kicker">지쿱 링크오더를 활용한 네이버 블로그 (모바일 버전) 교안용</div>
     <h1><span>수업 프롬프트북</span></h1>
-    <p class="lead">버튼을 누르면 그 안의 단계와 프롬프트가 아래에 나와요.</p>
-    <div class="tools">
-      <span class="count" id="count"></span>
-      <button class="ghost" id="bigBtn" type="button">글자 크게</button>
-      <button class="ghost" id="resetBtn" type="button">복사 표시 지우기</button>
-    </div>
   </header>
   <div class="menu" id="menu" aria-label="수업 단계 바로가기"></div>
   <nav class="chips" id="chips" aria-label="수업 단계"></nav>
   <main id="main"></main>
+  <div class="tools">
+      <span class="count" id="count"></span>
+      <button class="ghost" id="bigBtn" type="button">글자 크게</button>
+      <button class="ghost" id="resetBtn" type="button">복사 표시 지우기</button>
+    </div>
   <footer>빈칸이 있는 프롬프트는 칸에 내용을 적으면 자동으로 들어가요. 복사한 프롬프트는 번호가 초록색으로 바뀌어요.</footer>
 </div>
 
@@ -225,9 +236,9 @@ const SLIDES = `선택된 블로그 글의 전체 흐름과 맥락에 맞춰, �
 const PARTS = [
  {id:"skill", group:"setup", chip:"스킬 만들기", title:"기본 세팅 · 스킬 만들기", pages:"교안 3~12쪽", items:[
   {note:"제미나이 앱 왼쪽 위 메뉴 → 스킬 → + → 수동으로 만들기 순서로 들어가요.", pages:"교안 9~10쪽"},
-  {n:"1", title:"스킬 이름", where:"<strong>스킬의 이름</strong> 칸에 붙여넣기", pages:"교안 5쪽", text:"네이버-블로그-브랜딩-디렉터"},
-  {n:"2", title:"스킬 설명", where:"<strong>스킬에 대한 설명</strong> 칸에 붙여넣기", pages:"교안 5쪽", text:"네이버 블로그를 처음 시작하는 초보자나 리뉴얼을 원하는 운영자를 위해 기본 세팅(블로그명, 별명/닉네임, 프로필 소개글, 카테고리 구성)을 SEO 기반으로 체계적으로 기획해 주는 스킬입니다. 네이버 블로그 개설, 기본 세팅, 블로그 브랜딩, 블로그명·닉네임 추천, 프로필 소개글, 카테고리 기획 요청 시 사용합니다."},
-  {n:"3", title:"스킬 요청사항", where:"<strong>요청사항</strong> 칸에 붙여넣고 오른쪽 위 <strong>만들기</strong>", pages:"교안 6~8쪽", text:SKILL_BODY},
+  {n:"1", bundle:"skill", title:"스킬 이름", where:"<strong>스킬의 이름</strong> 칸에 붙여넣기", pages:"교안 5쪽", text:"네이버-블로그-브랜딩-디렉터"},
+  {n:"2", bundle:"skill", title:"스킬 설명", where:"<strong>스킬에 대한 설명</strong> 칸에 붙여넣기", pages:"교안 5쪽", text:"네이버 블로그를 처음 시작하는 초보자나 리뉴얼을 원하는 운영자를 위해 기본 세팅(블로그명, 별명/닉네임, 프로필 소개글, 카테고리 구성)을 SEO 기반으로 체계적으로 기획해 주는 스킬입니다. 네이버 블로그 개설, 기본 세팅, 블로그 브랜딩, 블로그명·닉네임 추천, 프로필 소개글, 카테고리 기획 요청 시 사용합니다."},
+  {n:"3", bundle:"skill", title:"스킬 요청사항", where:"<strong>요청사항</strong> 칸에 붙여넣고 오른쪽 위 <strong>만들기</strong>", pages:"교안 6~8쪽", text:SKILL_BODY},
   {n:"4", title:"블로그 기획 요청", where:"제미나이 채팅창에 <strong>@</strong>를 입력해 <strong>네이버-블로그-브랜딩-디렉터</strong>를 고른 뒤 붙여넣기", pages:"교안 11~12쪽", text:"지쿱과 제너럴바이오의 제품을 소개하고 구매할 수 있는 링크로 연결하는 글을 작성하는 상세페이지형 또는 정보성 또는 후기형 블로그를 운영하려고 해. 나에게 맞는 브랜딩을 해줘"}
  ]},
  {id:"home", group:"setup", chip:"홈편집·이미지", title:"기본 세팅 · 홈편집과 이미지", pages:"교안 13~17쪽", items:[
@@ -292,50 +303,6 @@ const PARTS = [
    {name:"제품명", files:[{label:"제품설명서", path:"materials/p01/manual.pdf", save:"제품명_제품설명서.pdf"},
                           {label:"제품사진 1", path:"materials/p01/photo1.jpg", save:"제품명_사진1.jpg"}]} */
 const MATERIALS = [
- {name:"케어세르브 웨이브 플러스", files:[
-  {label:"제품설명서 (PDF)", path:"materials/waveplus/manual.pdf", save:"케어세르브_웨이브플러스_제품설명서.pdf"},
-  {label:"제품사진 1", path:"materials/waveplus/photo1.png", thumb:"materials/waveplus/thumb_photo1.jpg", save:"케어세르브_웨이브플러스_사진1.png"},
-  {label:"제품사진 2", path:"materials/waveplus/photo2.jpg", thumb:"materials/waveplus/thumb_photo2.jpg", save:"케어세르브_웨이브플러스_사진2.jpg"},
-  {label:"사용 사진 1", path:"materials/waveplus/photo3.jpg", thumb:"materials/waveplus/thumb_photo3.jpg", save:"케어세르브_웨이브플러스_사용사진1.jpg"},
-  {label:"사용 사진 2", path:"materials/waveplus/use2.jpg", thumb:"materials/waveplus/thumb_use2.jpg", save:"케어세르브_웨이브플러스_사용사진2.jpg"},
-  {label:"사용 사진 3", path:"materials/waveplus/use3.jpg", thumb:"materials/waveplus/thumb_use3.jpg", save:"케어세르브_웨이브플러스_사용사진3.jpg"},
-  {label:"여러 각도 이미지 1", path:"materials/waveplus/view1.jpg", thumb:"materials/waveplus/thumb_view1.jpg", save:"케어세르브_웨이브플러스_여러각도1.jpg"},
-  {label:"여러 각도 이미지 2", path:"materials/waveplus/view2.jpg", thumb:"materials/waveplus/thumb_view2.jpg", save:"케어세르브_웨이브플러스_여러각도2.jpg"}
- ]},
- {name:"씨케이 밸런스 파워", files:[
-  {label:"제품설명서 (PDF)", path:"materials/ckpower/manual.pdf", save:"씨케이밸런스파워_제품설명서.pdf"},
-  {label:"제품사진 (박스)", path:"materials/ckpower/photo1.png", thumb:"materials/ckpower/thumb_photo1.jpg", save:"씨케이밸런스파워_제품사진.png"},
-  {label:"연출 이미지 1", path:"materials/ckpower/scene1.png", thumb:"materials/ckpower/thumb_scene1.jpg", save:"씨케이밸런스파워_연출이미지1.png"},
-  {label:"연출 이미지 2", path:"materials/ckpower/scene2.png", thumb:"materials/ckpower/thumb_scene2.jpg", save:"씨케이밸런스파워_연출이미지2.png"},
-  {label:"연출 이미지 3", path:"materials/ckpower/scene3.png", thumb:"materials/ckpower/thumb_scene3.jpg", save:"씨케이밸런스파워_연출이미지3.png"},
-  {label:"실제 제품 사진", path:"materials/ckpower/real1.jpg", thumb:"materials/ckpower/thumb_real1.jpg", save:"씨케이밸런스파워_실제사진.jpg"}
- ]},
- {name:"텔로메라 미스트", files:[
-  {label:"제품설명서 (PDF)", path:"materials/telomera-mist/manual.pdf", save:"텔로메라미스트_제품설명서.pdf"},
-  {label:"제품사진 (박스와 용기)", path:"materials/telomera-mist/photo1.jpg", thumb:"materials/telomera-mist/thumb_photo1.jpg", save:"텔로메라미스트_제품사진1.jpg"},
-  {label:"제품사진 (뚜껑 연 모습)", path:"materials/telomera-mist/photo2.png", thumb:"materials/telomera-mist/thumb_photo2.jpg", save:"텔로메라미스트_제품사진2.png"},
-  {label:"제품사진 (용기)", path:"materials/telomera-mist/photo3.jpg", thumb:"materials/telomera-mist/thumb_photo3.jpg", save:"텔로메라미스트_제품사진3.jpg"},
-  {label:"연출 이미지 (분사)", path:"materials/telomera-mist/scene1.png", thumb:"materials/telomera-mist/thumb_scene1.jpg", save:"텔로메라미스트_연출이미지.png"}
- ]},
- {name:"케어세르브 테라패치", files:[
-  {label:"제품설명서 (PDF)", path:"materials/tera-patch/manual.pdf", save:"케어세르브_테라패치_제품설명서.pdf"},
-  {label:"제품사진 (박스와 패치)", path:"materials/tera-patch/photo1.png", thumb:"materials/tera-patch/thumb_photo1.jpg", save:"케어세르브_테라패치_제품사진1.png"},
-  {label:"제품사진 (패치)", path:"materials/tera-patch/photo2.png", thumb:"materials/tera-patch/thumb_photo2.jpg", save:"케어세르브_테라패치_제품사진2.png"},
-  {label:"사용 모습", path:"materials/tera-patch/use1.jpg", thumb:"materials/tera-patch/thumb_use1.jpg", save:"케어세르브_테라패치_사용모습.jpg"}
- ]},
- {name:"지쿱 디엘릭서 브라운 효소", files:[
-  {label:"제품설명서 (PDF)", path:"materials/elixir-brown/manual.pdf", save:"디엘릭서브라운효소_제품설명서.pdf"},
-  {label:"제품사진 (박스와 스틱)", path:"materials/elixir-brown/photo1.jpg", thumb:"materials/elixir-brown/thumb_photo1.jpg", save:"디엘릭서브라운효소_제품사진.jpg"},
-  {label:"상세 이미지 1", path:"materials/elixir-brown/detail1.jpg", thumb:"materials/elixir-brown/thumb_detail1.jpg", save:"디엘릭서브라운효소_상세이미지1.jpg"},
-  {label:"상세 이미지 2", path:"materials/elixir-brown/detail2.jpg", thumb:"materials/elixir-brown/thumb_detail2.jpg", save:"디엘릭서브라운효소_상세이미지2.jpg"},
-  {label:"실제 제품 사진 1", path:"materials/elixir-brown/real1.jpg", thumb:"materials/elixir-brown/thumb_real1.jpg", save:"디엘릭서브라운효소_실제사진1.jpg"},
-  {label:"실제 제품 사진 2", path:"materials/elixir-brown/real2.jpg", thumb:"materials/elixir-brown/thumb_real2.jpg", save:"디엘릭서브라운효소_실제사진2.jpg"},
-  {label:"실제 제품 사진 3", path:"materials/elixir-brown/real3.jpg", thumb:"materials/elixir-brown/thumb_real3.jpg", save:"디엘릭서브라운효소_실제사진3.jpg"}
- ]},
- {name:"제너럴 밸런스 식물성 MSM", files:[
-  {label:"제품설명서 (PDF)", path:"materials/plant-msm/manual.pdf", save:"제너럴밸런스_식물성MSM_제품설명서.pdf"},
-  {label:"제품사진", path:"materials/plant-msm/photo1.png", thumb:"materials/plant-msm/thumb_photo1.jpg", save:"제너럴밸런스_식물성MSM_제품사진.png"}
- ]}
 ];
 
 let CAN_SHARE=false;
@@ -359,27 +326,34 @@ function updateCount(){document.getElementById("count").textContent="복사한 �
 const main=document.getElementById("main"),chips=document.getElementById("chips"),menu=document.getElementById("menu");
 chips.innerHTML='<a href="#home" data-go="">처음 화면</a><a href="#all" data-go="all">전체 보기</a>';
 const grpRange=g=>{const ns=PARTS.filter(p=>p.group===g).flatMap(p=>p.items.filter(i=>i.n).map(i=>i.n.split("-")[0]));return "프롬프트 "+ns[0]+"~"+ns[ns.length-1]+"번"};
-menu.innerHTML='<a class="all" href="#all" data-go="all"><span>전체 보기<small>프롬프트 '+total+'개를 순서대로 모두 보기</small></span></a>'+
- '<div class="duo"><div class="col">'+
- '<button type="button" class="grp-btn" data-grp="setup" aria-expanded="false"><span>네이버 블로그<br>기본 세팅하기<small>'+grpRange("setup")+'</small></span></button>'+
- '<button type="button" class="grp-btn" data-grp="post" aria-expanded="false"><span>네이버 블로그<br>글쓰기<small>'+grpRange("post")+'</small></span></button>'+
- '</div><a class="lib" href="#library" data-go="library"><span>제품<br>자료실<small>제품 이미지와 설명서를<br>카테고리별로 받기</small></span></a></div>'+
- '<div class="subs" id="subs-setup" hidden><p class="subs-title">네이버 블로그 기본 세팅하기</p></div>'+
- '<div class="subs" id="subs-post" hidden><p class="subs-title">네이버 블로그 글쓰기</p></div>';
+menu.innerHTML=
+ '<button type="button" class="grp-btn" data-grp="setup" aria-expanded="false"><span class="no">1</span><span>블로그 기본 세팅하기<small>스킬 만들기 · 홈편집 · 카테고리 설정</small></span><i class="chev" aria-hidden="true"></i></button>'+
+ '<div class="subs" id="subs-setup" hidden></div>'+
+ '<button type="button" class="grp-btn" data-grp="post" aria-expanded="false"><span class="no">2</span><span>블로그 글쓰기<small>노트북 글쓰기 · 편집과 업로드 · 쇼츠 영상</small></span><i class="chev" aria-hidden="true"></i></button>'+
+ '<div class="subs" id="subs-post" hidden></div>'+
+ '<a class="grp-btn" href="#library" data-go="library"><span class="no">3</span><span>제품 자료실<small>제품 이미지와 설명서 받기</small></span><i class="chev" aria-hidden="true"></i></a>'+
+ '<a class="allrow" href="#all" data-go="all">프롬프트 '+total+'개 한 번에 전체 보기</a>';
 PARTS.forEach(p=>{
   const idx=PARTS.indexOf(p)+1, ns=p.items.filter(i=>i.n).map(i=>i.n.split("-")[0]);
   const range=p.sub?p.sub:ns.length?("프롬프트 "+(ns[0]===ns[ns.length-1]?ns[0]:ns[0]+"~"+ns[ns.length-1])+"번"):"화면 따라하기";
-  const a=document.createElement("a");a.href="#"+p.id;a.dataset.go=p.id;a.textContent=idx+" "+p.chip;chips.appendChild(a);
+  const a=document.createElement("a");a.href="#"+p.id;a.dataset.go=p.id;a.textContent=p.chip;chips.appendChild(a);
   const m=document.createElement("a");m.href="#"+p.id;m.dataset.go=p.id;
-  m.innerHTML='<span class="no">'+idx+'</span><span>'+p.chip+'<small>'+range+' · '+p.pages+'</small></span>';if(p.group)document.getElementById("subs-"+p.group).appendChild(m);
+  m.innerHTML='<span>'+p.chip+'<small>'+range+' · '+p.pages+'</small></span><i class="chev" aria-hidden="true"></i>';if(p.group)document.getElementById("subs-"+p.group).appendChild(m);
   const sec=document.createElement("section");sec.className="part";sec.id="sec-"+p.id;
   sec.innerHTML='<div class="part-head"><h2>'+p.title+'</h2><span class="pages">'+p.pages+'</span></div>';
   const stack=document.createElement("div");stack.className="stack";sec.appendChild(stack);
+  let bEl=null;
   p.items.forEach(it=>{
+    let host=stack;
+    if(it.bundle){
+      if(!bEl){bEl=document.createElement("div");bEl.className="bundle";
+        bEl.innerHTML='<div class="bundle-head"><b>스킬 하나 만들기</b><span>한 화면에 있는 세 칸이에요. 이름, 설명, 요청사항 순서로 복사해 붙여넣어요.</span></div>';stack.appendChild(bEl)}
+      host=bEl;
+    }else bEl=null;
     if(it.note){
       const d=document.createElement("div");d.className="note";
       d.innerHTML='<b>화면 따라하기</b><div>'+it.note+'<span class="pages">'+it.pages+'</span></div>';
-      stack.appendChild(d);return;
+      host.appendChild(d);return;
     }
     const id="p"+it.n, c=document.createElement("article");
     c.className="card"+(copied.has(id)?" done":"");
@@ -414,13 +388,13 @@ PARTS.forEach(p=>{
         sh.textContent="공유 안 됨";setTimeout(()=>{sh.textContent="공유"},2500);
       }
     });
-    stack.appendChild(c);
+    host.appendChild(c);
   });
   main.appendChild(sec);
 });
 updateCount();
 
-const CAT_ORDER=["수업 실습용","건강식품","디엘릭서","화장품","생활용품","건강기기"];
+const CAT_ORDER=["건강식품","디엘릭서","화장품","생활용품","건강기기"];
 const LIB=MATERIALS.map(m=>Object.assign({cat:"수업 실습용"},m)).concat(typeof SAMPLES==="undefined"?[]:SAMPLES)
   .sort((x,y)=>CAT_ORDER.indexOf(x.cat)-CAT_ORDER.indexOf(y.cat));
 (function renderLibrary(){
@@ -480,7 +454,7 @@ function show(id,scroll){
   if(scroll){if(ok)chips.scrollIntoView({block:"start"});else window.scrollTo(0,0)}
 }
 document.addEventListener("click",e=>{
-  const g=e.target.closest(".grp-btn");
+  const g=e.target.closest(".grp-btn[data-grp]");
   if(g){const open=g.getAttribute("aria-expanded")==="true";openGrp(open?null:g.dataset.grp);
     if(!open)document.getElementById("subs-"+g.dataset.grp).scrollIntoView({block:"nearest"});return}
   const a=e.target.closest("[data-go]");if(!a)return;

@@ -8,6 +8,11 @@ const SAMPLES = [
     "save": "씨케이밸런스파워_제품설명서.pdf"
    },
    {
+    "label": "제품설명서 추가본 (PDF)",
+    "path": "materials/ckpower/manual.pdf",
+    "save": "CK밸런스파워_제품설명서_추가본.pdf"
+   },
+   {
     "label": "이미지 1",
     "path": "samples/h/1_1.jpg",
     "thumb": "samples/thumbs/h_1_1.jpg",
@@ -30,6 +35,24 @@ const SAMPLES = [
     "path": "samples/h/1_4.jpg",
     "thumb": "samples/thumbs/h_1_4.jpg",
     "save": "CK밸런스파워_이미지4.jpg"
+   },
+   {
+    "label": "이미지 5",
+    "path": "materials/ckpower/scene2.png",
+    "thumb": "materials/ckpower/thumb_scene2.jpg",
+    "save": "CK밸런스파워_이미지5.png"
+   },
+   {
+    "label": "이미지 6",
+    "path": "materials/ckpower/scene3.png",
+    "thumb": "materials/ckpower/thumb_scene3.jpg",
+    "save": "CK밸런스파워_이미지6.png"
+   },
+   {
+    "label": "이미지 7",
+    "path": "materials/ckpower/real1.jpg",
+    "thumb": "materials/ckpower/thumb_real1.jpg",
+    "save": "CK밸런스파워_이미지7.jpg"
    }
   ],
   "cat": "건강식품"
@@ -148,6 +171,11 @@ const SAMPLES = [
     "save": "지쿱디엘릭서브라운효소_제품설명서.pdf"
    },
    {
+    "label": "제품설명서 추가본 (PDF)",
+    "path": "materials/elixir-brown/manual.pdf",
+    "save": "디엘릭서브라운효소_제품설명서_추가본.pdf"
+   },
+   {
     "label": "이미지 1",
     "path": "samples/h/5_1.jpg",
     "thumb": "samples/thumbs/h_5_1.jpg",
@@ -170,6 +198,42 @@ const SAMPLES = [
     "path": "samples/h/5_4.jpg",
     "thumb": "samples/thumbs/h_5_4.jpg",
     "save": "디엘릭서브라운효소_이미지4.jpg"
+   },
+   {
+    "label": "이미지 5",
+    "path": "materials/elixir-brown/photo1.jpg",
+    "thumb": "materials/elixir-brown/thumb_photo1.jpg",
+    "save": "디엘릭서브라운효소_이미지5.jpg"
+   },
+   {
+    "label": "이미지 6",
+    "path": "materials/elixir-brown/detail1.jpg",
+    "thumb": "materials/elixir-brown/thumb_detail1.jpg",
+    "save": "디엘릭서브라운효소_이미지6.jpg"
+   },
+   {
+    "label": "이미지 7",
+    "path": "materials/elixir-brown/detail2.jpg",
+    "thumb": "materials/elixir-brown/thumb_detail2.jpg",
+    "save": "디엘릭서브라운효소_이미지7.jpg"
+   },
+   {
+    "label": "이미지 8",
+    "path": "materials/elixir-brown/real1.jpg",
+    "thumb": "materials/elixir-brown/thumb_real1.jpg",
+    "save": "디엘릭서브라운효소_이미지8.jpg"
+   },
+   {
+    "label": "이미지 9",
+    "path": "materials/elixir-brown/real2.jpg",
+    "thumb": "materials/elixir-brown/thumb_real2.jpg",
+    "save": "디엘릭서브라운효소_이미지9.jpg"
+   },
+   {
+    "label": "이미지 10",
+    "path": "materials/elixir-brown/real3.jpg",
+    "thumb": "materials/elixir-brown/thumb_real3.jpg",
+    "save": "디엘릭서브라운효소_이미지10.jpg"
    }
   ],
   "cat": "디엘릭서"
@@ -450,6 +514,12 @@ const SAMPLES = [
     "path": "samples/h/12_4.jpg",
     "thumb": "samples/thumbs/h_12_4.jpg",
     "save": "제너럴밸런스식물성MSM_이미지4.jpg"
+   },
+   {
+    "label": "이미지 5",
+    "path": "materials/plant-msm/photo1.png",
+    "thumb": "materials/plant-msm/thumb_photo1.jpg",
+    "save": "제너럴밸런스식물성MSM_이미지5.png"
    }
   ],
   "cat": "건강식품"
@@ -590,6 +660,48 @@ const SAMPLES = [
     "path": "samples/h/29_4.jpg",
     "thumb": "samples/thumbs/h_29_4.jpg",
     "save": "케어세르브웨이브플러스_이미지4.jpg"
+   },
+   {
+    "label": "이미지 5",
+    "path": "materials/waveplus/photo1.png",
+    "thumb": "materials/waveplus/thumb_photo1.jpg",
+    "save": "케어세르브웨이브플러스_이미지5.png"
+   },
+   {
+    "label": "이미지 6",
+    "path": "materials/waveplus/photo2.jpg",
+    "thumb": "materials/waveplus/thumb_photo2.jpg",
+    "save": "케어세르브웨이브플러스_이미지6.jpg"
+   },
+   {
+    "label": "이미지 7",
+    "path": "materials/waveplus/photo3.jpg",
+    "thumb": "materials/waveplus/thumb_photo3.jpg",
+    "save": "케어세르브웨이브플러스_이미지7.jpg"
+   },
+   {
+    "label": "이미지 8",
+    "path": "materials/waveplus/use2.jpg",
+    "thumb": "materials/waveplus/thumb_use2.jpg",
+    "save": "케어세르브웨이브플러스_이미지8.jpg"
+   },
+   {
+    "label": "이미지 9",
+    "path": "materials/waveplus/use3.jpg",
+    "thumb": "materials/waveplus/thumb_use3.jpg",
+    "save": "케어세르브웨이브플러스_이미지9.jpg"
+   },
+   {
+    "label": "이미지 10",
+    "path": "materials/waveplus/view1.jpg",
+    "thumb": "materials/waveplus/thumb_view1.jpg",
+    "save": "케어세르브웨이브플러스_이미지10.jpg"
+   },
+   {
+    "label": "이미지 11",
+    "path": "materials/waveplus/view2.jpg",
+    "thumb": "materials/waveplus/thumb_view2.jpg",
+    "save": "케어세르브웨이브플러스_이미지11.jpg"
    }
   ],
   "cat": "건강기기"
@@ -625,6 +737,18 @@ const SAMPLES = [
     "path": "samples/h/30_4.jpg",
     "thumb": "samples/thumbs/h_30_4.jpg",
     "save": "케어세르브테라패치_이미지4.jpg"
+   },
+   {
+    "label": "이미지 5",
+    "path": "materials/tera-patch/photo1.png",
+    "thumb": "materials/tera-patch/thumb_photo1.jpg",
+    "save": "케어세르브테라패치_이미지5.png"
+   },
+   {
+    "label": "이미지 6",
+    "path": "materials/tera-patch/photo2.png",
+    "thumb": "materials/tera-patch/thumb_photo2.jpg",
+    "save": "케어세르브테라패치_이미지6.png"
    }
   ],
   "cat": "건강기기"
@@ -1749,6 +1873,18 @@ const SAMPLES = [
     "path": "samples/x/8_2.png",
     "thumb": "samples/thumbs/x_8_2.jpg",
     "save": "텔로메라미스트_이미지2.png"
+   },
+   {
+    "label": "이미지 3",
+    "path": "materials/telomera-mist/photo2.png",
+    "thumb": "materials/telomera-mist/thumb_photo2.jpg",
+    "save": "텔로메라미스트_이미지3.png"
+   },
+   {
+    "label": "이미지 4",
+    "path": "materials/telomera-mist/photo3.jpg",
+    "thumb": "materials/telomera-mist/thumb_photo3.jpg",
+    "save": "텔로메라미스트_이미지4.jpg"
    }
   ],
   "cat": "화장품"
