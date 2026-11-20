@@ -1681,12 +1681,18 @@ const SAMPLES = [
  },
  {
   "name": "케어셀라 퓨어 선로션",
-  "group": "설명서만",
+  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
     "path": "samples/pdf/p38.pdf",
     "save": "케어셀라퓨어선로션_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/9_1.jpg",
+    "thumb": "samples/thumbs/x_9_1.jpg",
+    "save": "케어셀라퓨어선로션_이미지1.jpg"
    }
   ]
  },
