@@ -1752,16 +1752,5 @@ const SAMPLES = [
     "save": "텔로메라미스트_이미지2.png"
    }
   ]
- },
- {
-  "name": "텔로미어 자료",
-  "group": "설명서만",
-  "files": [
-   {
-    "label": "제품설명서 (PDF)",
-    "path": "samples/pdf/p50.pdf",
-    "save": "텔로미어자료_제품설명서.pdf"
-   }
-  ]
  }
 ];
