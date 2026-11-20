@@ -1,7 +1,6 @@
 const SAMPLES = [
  {
   "name": "CK밸런스 파워",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 씨케이 밸런스 파워 (PDF)",
@@ -32,11 +31,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_1_4.jpg",
     "save": "CK밸런스파워_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "디엘릭서 그린",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 지쿱 디엘릭서 그린 (PDF)",
@@ -67,11 +66,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_2_4.jpg",
     "save": "디엘릭서그린_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "디엘릭서"
  },
  {
   "name": "디엘릭서 레드",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 지쿱 디엘릭서 레드 (PDF)",
@@ -102,11 +101,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_3_4.jpg",
     "save": "디엘릭서레드_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "디엘릭서"
  },
  {
   "name": "디엘릭서 화이트 글로우",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 지쿱 디엘릭서 화이트 글로우 (PDF)",
@@ -137,11 +136,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_4_4.jpg",
     "save": "디엘릭서화이트글로우_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "디엘릭서"
  },
  {
   "name": "디엘릭서 브라운 효소",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 지쿱 디엘릭서 브라운 효소 (PDF)",
@@ -172,11 +171,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_5_4.jpg",
     "save": "디엘릭서브라운효소_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "디엘릭서"
  },
  {
   "name": "디엘릭서 퍼플",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 지쿱 디엘릭서 퍼플 (PDF)",
@@ -207,11 +206,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_35_4.jpg",
     "save": "디엘릭서퍼플_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "디엘릭서"
  },
  {
   "name": "액티브 디에스 프로 플러스",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 액티브 디에스 프로 (PDF)",
@@ -242,11 +241,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_6_4.jpg",
     "save": "액티브디에스프로플러스_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "디엘릭서"
  },
  {
   "name": "제너럴 밸런스 프로바이오틱스 플러스",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 제너럴 밸런스 프로바이오틱스 플러스 (PDF)",
@@ -277,11 +276,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_7_4.jpg",
     "save": "제너럴밸런스프로바이오틱스플러스_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "제너럴 밸런스 알티지 플러스",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 제너럴 밸런스 알티지 플러스 (PDF)",
@@ -312,11 +311,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_8_4.jpg",
     "save": "제너럴밸런스알티지플러스_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "제너럴 밸런스 루테인지아잔틴",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 제너럴 밸런스 루테인지아잔틴 (PDF)",
@@ -347,11 +346,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_9_4.jpg",
     "save": "제너럴밸런스루테인지아잔틴_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "제너럴 밸런스 밀크씨슬",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 제너럴 밸런스 밀크씨슬 (PDF)",
@@ -382,11 +381,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_10_4.jpg",
     "save": "제너럴밸런스밀크씨슬_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "제너럴 밸런스 비타민C",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 제너럴 밸런스 비타민 씨 (PDF)",
@@ -417,11 +416,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_11_4.jpg",
     "save": "제너럴밸런스비타민C_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "제너럴 밸런스 식물성 MSM",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 제너럴 밸런스 식물성 MSM (PDF)",
@@ -452,11 +451,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_12_4.jpg",
     "save": "제너럴밸런스식물성MSM_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "제너럴 밸런스 칼슘 마그네슘",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 제너럴 밸런스 칼슘 마그네슘 (PDF)",
@@ -487,11 +486,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_13_4.jpg",
     "save": "제너럴밸런스칼슘마그네슘_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "지쿱카페 게르마늄 블랙",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 지쿱카페 게르마늄 블랙 (PDF)",
@@ -522,11 +521,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_14_4.jpg",
     "save": "지쿱카페게르마늄블랙_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "지쿱 라피 V (LAPY V)",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 지쿱 라피 V (PDF)",
@@ -557,11 +556,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_28_4.jpg",
     "save": "지쿱라피V(LAPYV)_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강기기"
  },
  {
   "name": "케어세르브 웨이브 플러스",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 케어세르브 웨이브 플러스 (PDF)",
@@ -592,11 +591,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_29_4.jpg",
     "save": "케어세르브웨이브플러스_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강기기"
  },
  {
   "name": "케어세르브 테라패치",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 케어세르브 테라 패치 (PDF)",
@@ -627,11 +626,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_30_4.jpg",
     "save": "케어세르브테라패치_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강기기"
  },
  {
   "name": "디엘릭서 디톡스 다이어트 세트",
-  "group": "건강",
   "files": [
    {
     "label": "이미지 1",
@@ -657,11 +656,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_31_4.jpg",
     "save": "디엘릭서디톡스다이어트세트_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "디엘릭서"
  },
  {
   "name": "텔로메라 지케이(GK)",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 텔로메라 지케이 (PDF)",
@@ -692,11 +691,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_32_4.jpg",
     "save": "텔로메라지케이(GK)_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "텔로메라 정",
-  "group": "건강",
   "files": [
    {
     "label": "제품설명서 · 텔로메라 정 (PDF)",
@@ -727,11 +726,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/h_33_4.jpg",
     "save": "텔로메라정_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "건강식품"
  },
  {
   "name": "텔로메라 크림",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 텔로메라 3종 화장품 (PDF)",
@@ -762,11 +761,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_46_4.jpg",
     "save": "텔로메라크림_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "텔로메라 세럼",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 텔로메라 3종 화장품 (PDF)",
@@ -797,11 +796,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_45_4.jpg",
     "save": "텔로메라세럼_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "텔로메라 부스터",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 텔로메라 3종 화장품 (PDF)",
@@ -832,11 +831,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_44_4.jpg",
     "save": "텔로메라부스터_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "텔로메라 3종 세트",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 텔로메라 3종 화장품 (PDF)",
@@ -867,11 +866,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_43_4.jpg",
     "save": "텔로메라3종세트_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 바이오케이 200",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 바이오케이 (PDF)",
@@ -902,11 +901,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_47_4.jpg",
     "save": "케어셀라바이오케이200_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 벨벳 커버 비비크림",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 벨벳커버 비비크림 (PDF)",
@@ -937,11 +936,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_42_4.jpg",
     "save": "케어셀라벨벳커버비비크림_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 버블톡톡 세럼",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 버블톡톡 세럼 (PDF)",
@@ -972,11 +971,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_41_4.jpg",
     "save": "케어셀라버블톡톡세럼_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 매직 필링젤",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 매직 필링젤 (PDF)",
@@ -1007,11 +1006,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_40_4.jpg",
     "save": "케어셀라매직필링젤_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 마일드 클렌징 오일",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 마일드 클렌징 오일 (PDF)",
@@ -1042,11 +1041,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_39_4.jpg",
     "save": "케어셀라마일드클렌징오일_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 바이오케이 애플타민 씨 세럼",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 바이오케이 애플타민 씨 세럼 (PDF)",
@@ -1077,11 +1076,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_38_4.jpg",
     "save": "케어셀라바이오케이애플타민씨세럼_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 하이드레이션 베이직 세트",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "이미지 1",
@@ -1107,11 +1106,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_34_4.jpg",
     "save": "케어셀라하이드레이션베이직세트_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 하이드레이션 폼 클렌저",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 하이드레이션 폼 클렌저 (PDF)",
@@ -1142,11 +1141,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_35_4.jpg",
     "save": "케어셀라하이드레이션폼클렌저_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 하이드레이션 인텐시브 세럼",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 하이드레이션 인텐시브 세럼 (PDF)",
@@ -1177,11 +1176,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_30_4.jpg",
     "save": "케어셀라하이드레이션인텐시브세럼_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 하이드레이션 딥 에멀전",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 하이드레이션 딥 에멀전 (PDF)",
@@ -1212,11 +1211,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_19_4.jpg",
     "save": "케어셀라하이드레이션딥에멀전_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 하이드레이션 밸런스 토너",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 하이드레이션 밸런스 토너 (PDF)",
@@ -1247,11 +1246,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_20_4.jpg",
     "save": "케어셀라하이드레이션밸런스토너_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 하이드레이션 아쿠아 크림",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 하이드레이션 아쿠아크림 (PDF)",
@@ -1282,11 +1281,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_21_4.jpg",
     "save": "케어셀라하이드레이션아쿠아크림_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 에코어스노우 유황비누 4EA",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 케어셀라 에코어스노우 유황비누 (PDF)",
@@ -1317,11 +1316,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_18_4.jpg",
     "save": "케어셀라에코어스노우유황비누4EA_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "[다크브라운] 하라힐즈 프로 컬러오리진 4엔비",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "이미지 1",
@@ -1347,11 +1346,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_31_4.jpg",
     "save": "[다크브라운]하라힐즈프로컬러오리진4엔비_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "[네츄럴브라운] 하라힐즈 프로 컬러오리진 6엔비",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "이미지 1",
@@ -1377,11 +1376,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_32_4.jpg",
     "save": "[네츄럴브라운]하라힐즈프로컬러오리진6엔비_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "[라이트브라운] 하라힐즈 프로 컬러오리진 8엔비",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "이미지 1",
@@ -1407,11 +1406,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_33_4.jpg",
     "save": "[라이트브라운]하라힐즈프로컬러오리진8엔비_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "지쿱 샴푸 & 컨디셔너",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 지쿱 샴푸 (PDF)",
@@ -1447,11 +1446,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_37_4.jpg",
     "save": "지쿱샴푸&컨디셔너_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "지쿱 바디워시 & 바디로션",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 지쿱 바디 워시 (PDF)",
@@ -1487,11 +1486,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_36_4.jpg",
     "save": "지쿱바디워시&바디로션_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "지쿱 치약",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 지쿱 치약 (PDF)",
@@ -1522,11 +1521,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_25_4.jpg",
     "save": "지쿱치약_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "지쿱 화이트 치약",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 지쿱 화이트 치약 (PDF)",
@@ -1557,11 +1556,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_26_4.jpg",
     "save": "지쿱화이트치약_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "지쿱 칫솔",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 · 지쿱 칫솔 (PDF)",
@@ -1592,11 +1591,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/b_27_4.jpg",
     "save": "지쿱칫솔_이미지4.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "지쿱 고농축 섬유유연제",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1609,11 +1608,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_5_1.jpg",
     "save": "지쿱고농축섬유유연제_이미지1.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "지쿱 고농축 세탁세제",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1626,11 +1625,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_3_1.jpg",
     "save": "지쿱고농축세탁세제_이미지1.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "지쿱 고농축 주방세제",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1643,11 +1642,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_4_1.jpg",
     "save": "지쿱고농축주방세제_이미지1.jpg"
    }
-  ]
+  ],
+  "cat": "생활용품"
  },
  {
   "name": "케어셀라 비너스필",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1660,11 +1659,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_1_1.jpg",
     "save": "케어셀라비너스필_이미지1.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 선크림",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1677,11 +1676,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_2_1.jpg",
     "save": "케어셀라선크림_이미지1.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 퓨어 선로션",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1694,11 +1693,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_9_1.jpg",
     "save": "케어셀라퓨어선로션_이미지1.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 하이드라 수딩 마스크 팩",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1711,11 +1710,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_6_1.jpg",
     "save": "케어셀라하이드라수딩마스크팩_이미지1.png"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 훼이셜 라인업 리프팅겔 클렌저",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1728,11 +1727,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_7_1.jpg",
     "save": "케어셀라훼이셜라인업리프팅겔클렌저_이미지1.png"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "텔로메라 미스트",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1751,11 +1750,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_8_2.jpg",
     "save": "텔로메라미스트_이미지2.png"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "케어셀라 스킨이노베이터",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1780,11 +1779,11 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_skin-innovator_3.jpg",
     "save": "케어셀라스킨이노베이터_이미지3.jpg"
    }
-  ]
+  ],
+  "cat": "화장품"
  },
  {
   "name": "샤워업 샤워기 필터 심플세트 (레몬향)",
-  "group": "뷰티·생활",
   "files": [
    {
     "label": "제품설명서 (PDF)",
@@ -1809,6 +1808,7 @@ const SAMPLES = [
     "thumb": "samples/thumbs/x_showerup_3.jpg",
     "save": "샤워업샤워기필터심플세트(레몬향)_이미지3.png"
    }
-  ]
+  ],
+  "cat": "생활용품"
  }
 ];
