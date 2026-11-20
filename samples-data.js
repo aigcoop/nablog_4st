@@ -1781,5 +1781,34 @@ const SAMPLES = [
     "save": "케어셀라스킨이노베이터_이미지3.jpg"
    }
   ]
+ },
+ {
+  "name": "샤워업 샤워기 필터 심플세트 (레몬향)",
+  "group": "뷰티·생활",
+  "files": [
+   {
+    "label": "제품설명서 (PDF)",
+    "path": "samples/pdf/showerup.pdf",
+    "save": "샤워업샤워기필터심플세트(레몬향)_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/showerup_1.png",
+    "thumb": "samples/thumbs/x_showerup_1.jpg",
+    "save": "샤워업샤워기필터심플세트(레몬향)_이미지1.png"
+   },
+   {
+    "label": "이미지 2",
+    "path": "samples/x/showerup_2.png",
+    "thumb": "samples/thumbs/x_showerup_2.jpg",
+    "save": "샤워업샤워기필터심플세트(레몬향)_이미지2.png"
+   },
+   {
+    "label": "이미지 3",
+    "path": "samples/x/showerup_3.png",
+    "thumb": "samples/thumbs/x_showerup_3.jpg",
+    "save": "샤워업샤워기필터심플세트(레몬향)_이미지3.png"
+   }
+  ]
  }
 ];
