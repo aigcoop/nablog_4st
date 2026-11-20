@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>네이버 블로그 수업 프롬프트북</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* 레이아웃: 휴대폰 한 줄 세로 흐름. 교안 순서대로 번호가 붙은 프롬프트 카드, 사이사이에 화면 따라하기 안내 줄. */
+:root{
+  --paper:#f4f6f3;
+  --card:#ffffff;
+  --ink:#16241d;
+  --muted:#5b6b62;
+  --line:#d5ddd6;
+  --green:#0a7a45;
+  --green-ink:#ffffff;
+  --marker:#ffe94a;
+  --marker-ink:#16241d;
+  --soft:#e8efe9;
+  --display:"Black Han Sans","IBM Plex Sans KR",sans-serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1612;--card:#18221c;--ink:#e9f0ea;--muted:#9eb0a5;--line:#2c3a31;
+    --green:#35c27c;--green-ink:#06130c;--marker:#ffe94a;--marker-ink:#16241d;--soft:#202c25;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1612;--card:#18221c;--ink:#e9f0ea;--muted:#9eb0a5;--line:#2c3a31;
+  --green:#35c27c;--green-ink:#06130c;--marker:#ffe94a;--marker-ink:#16241d;--soft:#202c25;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{font-size:17px;scroll-behavior:smooth;scroll-padding-top:70px}
+html.big{font-size:20px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 80px}
+header.top{padding:28px 0 14px}
+.kicker{font-size:.8rem;color:var(--muted);font-weight:600}
+h1{font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1.2;margin:6px 0 10px;text-wrap:balance}
+h1 span{background:linear-gradient(transparent 55%,var(--marker) 55%);color:var(--ink)}
+:root[data-theme="dark"] h1 span{color:var(--marker-ink);background:var(--marker);padding:0 4px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) h1 span{color:var(--marker-ink);background:var(--marker);padding:0 4px}}
+.lead{margin:0;color:var(--muted);font-size:.95rem}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.tools .count{font-weight:700;font-variant-numeric:tabular-nums;margin-right:auto}
+button{font-family:inherit;font-size:1rem;cursor:pointer;color:inherit}
+.ghost{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:600}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+
+nav.chips{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);margin:0 -16px;padding:10px 16px;display:flex;gap:8px;overflow-x:auto}
+nav.chips a{flex:none;text-decoration:none;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:6px 13px;font-size:.85rem;font-weight:600;white-space:nowrap}
+
+section.part{margin-top:34px}
+.part-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin-bottom:12px}
+.part-head h2{font-size:1.25rem;margin:0;font-weight:700}
+.pages{font-size:.8rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.stack{display:flex;flex-direction:column;gap:12px}
+
+.note{display:flex;gap:10px;align-items:flex-start;background:var(--soft);border-radius:12px;padding:12px 14px;font-size:.92rem}
+.note b{flex:none;font-size:.75rem;border:1.5px solid var(--muted);color:var(--muted);border-radius:6px;padding:1px 6px;margin-top:2px;white-space:nowrap}
+.note .pages{display:block}
+
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card.done{border-color:var(--green)}
+.card-head{display:flex;gap:12px;align-items:flex-start}
+.num{flex:none;min-width:2.5rem;height:2.5rem;padding:0 8px;border-radius:10px;background:var(--marker);color:var(--marker-ink);font-family:var(--display);font-size:1.35rem;display:flex;align-items:center;justify-content:center}
+.card.done .num{background:var(--green);color:var(--green-ink)}
+.card h3{margin:0;font-size:1.1rem;line-height:1.35}
+.where{margin:0;font-size:.88rem;color:var(--muted)}
+.where strong{color:var(--ink)}
+label.fill{display:flex;flex-direction:column;gap:4px;font-size:.85rem;font-weight:600}
+label.fill input{font:inherit;font-size:1rem;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);width:100%}
+pre.prompt{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--body);font-size:.95rem;line-height:1.65;background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;max-height:17rem;overflow:auto}
+pre.prompt mark{background:var(--marker);color:var(--marker-ink);padding:0 3px;border-radius:3px}
+.copy{border:0;background:var(--green);color:var(--green-ink);font-weight:700;font-size:1.05rem;border-radius:12px;padding:13px 16px;width:100%}
+.copy.ok{background:var(--ink);color:var(--paper)}
+.sub{font-size:.8rem;color:var(--muted);margin:0}
+.choice{font-size:.78rem;font-weight:700;color:var(--green);margin:0}
+footer{margin-top:40px;font-size:.8rem;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+.menu{display:grid;gap:10px;margin-top:10px}
+.menu a{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;font-weight:700;font-size:1.15rem;line-height:1.35}
+.menu a .no{flex:none;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--green);color:var(--green-ink);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:1.25rem;font-weight:400}
+.menu a small{display:block;font-size:.8rem;font-weight:500;color:var(--muted)}
+.menu a.all{background:var(--ink);color:var(--paper);border-color:var(--ink);padding:18px 16px}
+.menu a.all small{color:inherit;opacity:.75}
+.menu a[aria-current="true"]{border-color:var(--green);box-shadow:inset 0 0 0 1.5px var(--green)}
+nav.chips a[aria-current="true"]{background:var(--green);color:var(--green-ink);border-color:var(--green)}
+body:not(.open) nav.chips{display:none}
+nav.chips{margin-top:22px}
+.actions{display:flex;gap:8px}
+.actions .copy{flex:1;min-width:0}
+.share{flex:none;border:1.5px solid var(--green);background:var(--card);color:var(--green);font-weight:700;font-size:1.05rem;border-radius:12px;padding:13px 18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="kicker">지쿱 링크오더를 활용한 네이버 블로그 (모바일 버전) 교안용</div>
+    <h1><span>수업 프롬프트북</span></h1>
+    <p class="lead">단계 버튼을 누르면 그 단계의 프롬프트가 아래에 나와요.</p>
+    <div class="tools">
+      <span class="count" id="count"></span>
+      <button class="ghost" id="bigBtn" type="button">글자 크게</button>
+      <button class="ghost" id="resetBtn" type="button">복사 표시 지우기</button>
+    </div>
+  </header>
+  <div class="menu" id="menu" aria-label="수업 단계 바로가기"></div>
+  <nav class="chips" id="chips" aria-label="수업 단계"></nav>
+  <main id="main"></main>
+  <footer>빈칸이 있는 프롬프트는 칸에 내용을 적으면 자동으로 들어가요. 복사한 프롬프트는 번호가 초록색으로 바뀌어요.</footer>
+</div>
+
+<script>
+const SKILL_BODY = `Instructions
+역할 및 정체성
+당신은 네이버 블로그 전문 브랜딩 디렉터이자 SEO 기반 카피라이터입니다. 블로그 개설자나 리뉴얼을 원하는 사용자의 주요 주제, 타깃 독자, 운영 목표, 퍼스널 브랜딩 방향성을 분석하여 최적의 블로그명, 닉네임(별명), 모바일/PC 프로필 소개글, 카테고리 네이밍을 체계적으로 기획해 줍니다.
+
+출력 형식 필수 규칙
+출력값에 이모티콘 없음.
+출력값에 특수기호 없음. (장식용 기호, 이모지 등을 일절 사용하지 않고 깔끔한 텍스트로만 작성)
+
+핵심 원칙
+검색 노출(SEO)과 직관성의 조화:
+네이버 검색 알고리즘과 스마트블록 특성을 고려해 핵심 키워드가 자연스럽게 녹아들면서도 독자가 한눈에 기억하기 쉬운 이름을 만듭니다.
+신뢰도와 페르소나 구축:
+모호하거나 추상적인 표현 대신 구체적인 전문 분야, 혜택, 활동 지역, 독특한 차별점을 명확히 살립니다.
+가독성 최적화:
+네이버 모바일 환경(글자 수 제한, 줄바꿈)을 고려해 스마트폰 화면에서 잘리지 않고 직관적으로 읽히는 글자 수로 기획합니다.
+
+기본 작동 프로세스
+사용자가 주제나 브랜딩 요청을 전달하면 다음 4가지 영역을 패키지 형태로 체계적으로 제안합니다.
+
+1. 블로그명 (5가지 스타일 제안)
+직관/키워드형: 검색에 유리하고 무엇을 다루는지 바로 알 수 있는 형태
+페르소나/전문가형: 운영자의 역할, 직함, 아이덴티티가 강조된 형태
+스토리/감성형: 독자에게 친근감과 공감을 주는 부드러운 형태
+타깃/혜택형: 독자가 얻을 수 있는 구체적인 가치를 전면에 내세운 형태
+위트/언어유희형: 기억하기 쉽고 입에 착 붙는 형태
+
+2. 별명 (닉네임) 추천 (5가지 옵션)
+블로그 검색 및 댓글 소통에 친근한 2~4글자 위주의 네이밍
+호칭 뒤에 '님'을 붙였을 때 자연스럽고 발음하기 편한 이름
+전문직 느낌, 친근한 이웃 느낌, 브랜드 캐릭터 느낌 등 다각도 제안
+
+3. 네이버 프로필 소개글 (3가지 버전)
+A버전 (모바일 최적화 초압축형 - 100자 내외): 모바일 앱 첫 화면에서 한눈에 보이는 간결한 소개 (줄바꿈 고려)
+B버전 (스토리텔링형 - 200자 내외): 운영자의 철학, 시작한 계기, 독자에게 전하고 싶은 가치 강조
+C버전 (비즈니스/전문가형 - 200자 내외): 경력, 이력, 전문 분야, 제공하는 콘텐츠 및 협업/문의 안내 포함
+
+4. 카테고리 구성 가이드 (보너스 제안)
+C-Rank 및 전문성 축적을 위한 대주제 5~6개, 각 대주제별 소주제 2개 내외의 구조 제안
+네이버 블로그 카테고리 설정 특성상 특수기호는 일절 사용하지 않음
+화면에서 카테고리 제목이 잘리지 않도록 글자 수를 최대한 요약하여(공백 포함 10자 이내 권장) 직관적이고 쉽게 설정할 수 있는 간결한 명칭으로 제안
+
+상호작용 규칙
+사용자가 정보 없이 "블로그 기획해줘" 또는 "네이버 블로그 기본 세팅해줘"라고만 할 경우:
+블로그에서 주로 다룰 메인 주제 (예: AI 교육, 농산물 공동구매, 뷰티/헬스케어 등)
+주 타깃 독자층 (예: 왕초보 시니어, 주부, 소상공인 등)
+블로그 운영 목적 (수익화, 퍼스널 브랜딩, 제품 판매, 제휴/강의 유치)
+선호하는 분위기 (친근하고 따뜻함, 전문적이고 신뢰감 있음, 트렌디함)
+위 4가지를 묻는 간결한 질문을 먼저 건네세요.
+사용자가 구체적인 정보를 제공하면 즉시 완성도 높은 기획안 4단계를 이모티콘과 특수기호 없이 깔끔한 서식으로 출력하세요.`;
+
+const WRITE_FULL = `제공된 소스의 사실만 바탕으로 "{{v}}" 제목에 맞춰 네이버 블로그 글을 작성해 주세요.
+
+[글 작성 패턴]
+1. 공감되는 도입(고민·상황 짚기)
+2. 핵심 요약(한눈에 보는 포인트)
+3. 상세 특징 및 활용법(소제목 나누어 정리)
+4. 요약 및 마무리 안내(정리 및 다음 행동 안내)
+
+[작성 규칙]
+- 제목의 핵심 키워드를 도입부, 소제목, 본문에 자연스럽게 포함해 주세요.
+- 모바일에서 읽기 쉽게 짧은 문장과 문단 줄바꿈을 사용해 주세요.
+- 소스에 없는 내용은 추측하지 말고, 과장된 표현 없이 친절하고 객관적으로 작성해 주세요.
+- 마지막에 관련 해시태그 5개를 적어 주세요.`;
+
+const SLIDES = `선택된 블로그 글의 전체 흐름과 맥락에 맞춰, 총 8장의 슬라이드를 한 번에 묶음 슬라이드 형태로 만들어 주세요.
+
+[8장 슬라이드 전체 구성 규칙]
+- 반드시 총 8장의 슬라이드를 한 세트로 연속 생성해 주세요.
+- 1장 (블로그 대표 썸네일): 블로그 글의 핵심 주제가 드러나는 대표 썸네일 슬라이드로 구성해 주세요. 제목과 핵심 키워드 위주로 큼직하고 깔끔하게 글씨를 넣어 주세요.
+- 2장 ~ 7장 (본문 맥락 이미지 - 글자 없음): 블로그 글의 도입, 핵심 포인트, 성분/특징, 활용 장면, 라이프스타일, 마무리 흐름에 맞춰 각 장마다 글의 맥락에 어울리는 시각 이미지를 1장씩 배치해 주세요. 이 구간(2~7장)은 글씨나 설명 텍스트 없이 사진·일러스트·시각 장면 중심의 이미지만 나오게 구성해 주세요.
+- 8장 (마무리 요약/정리 슬라이드): 전체 내용을 차분하게 정리하는 마무리 슬라이드로 구성해 주세요.
+
+[시각 스타일 및 출력 규칙]
+- 한 장씩 따로따로가 아니라 1장부터 8장까지 이어지는 하나의 슬라이드 세트로 한꺼번에 출력해 주세요.
+- 2~7장은 불필요한 글씨, 자막, 말풍선, 숫자 표기를 넣지 말고 블로그 본문 맥락에 맞는 깔끔한 이미지만 표현해 주세요.
+- 전체적으로 통일감 있는 밝고 신뢰감 있는 색감과 구도를 유지해 주세요.
+- 제품의 형태는 소스에 있는 제품의 형태와 100% 일치되도록 해주세요.`;
+
+const PARTS = [
+ {id:"skill", chip:"스킬 만들기", title:"기본 세팅 · 스킬 만들기", pages:"교안 3~12쪽", items:[
+  {note:"제미나이 앱 왼쪽 위 메뉴 → 스킬 → + → 수동으로 만들기 순서로 들어가요.", pages:"교안 9~10쪽"},
+  {n:"1", title:"스킬 이름", where:"<strong>스킬의 이름</strong> 칸에 붙여넣기", pages:"교안 5쪽", text:"네이버-블로그-브랜딩-디렉터"},
+  {n:"2", title:"스킬 설명", where:"<strong>스킬에 대한 설명</strong> 칸에 붙여넣기", pages:"교안 5쪽", text:"네이버 블로그를 처음 시작하는 초보자나 리뉴얼을 원하는 운영자를 위해 기본 세팅(블로그명, 별명/닉네임, 프로필 소개글, 카테고리 구성)을 SEO 기반으로 체계적으로 기획해 주는 스킬입니다. 네이버 블로그 개설, 기본 세팅, 블로그 브랜딩, 블로그명·닉네임 추천, 프로필 소개글, 카테고리 기획 요청 시 사용합니다."},
+  {n:"3", title:"스킬 요청사항", where:"<strong>요청사항</strong> 칸에 붙여넣고 오른쪽 위 <strong>만들기</strong>", pages:"교안 6~8쪽", text:SKILL_BODY},
+  {n:"4", title:"블로그 기획 요청", where:"제미나이 채팅창에 <strong>@</strong>를 입력해 <strong>네이버-블로그-브랜딩-디렉터</strong>를 고른 뒤 붙여넣기", pages:"교안 11~12쪽", text:"지쿱과 제너럴바이오의 제품을 소개하고 구매할 수 있는 링크로 연결하는 글을 작성하는 상세페이지형 또는 정보성 또는 후기형 블로그를 운영하려고 해. 나에게 맞는 브랜딩을 해줘"}
+ ]},
+ {id:"home", chip:"홈편집·이미지", title:"기본 세팅 · 홈편집과 이미지", pages:"교안 13~17쪽", items:[
+  {note:"4번 결과에서 블로그명, 닉네임, 프로필 소개글을 하나씩 골라 홈편집 화면에 입력해요.", pages:"교안 13~15쪽"},
+  {n:"5", title:"커버 이미지 만들기", where:"제미나이 채팅창에 붙여넣기 → 이미지를 갤러리에 저장 → 홈편집에서 <strong>커버 이미지 변경</strong>", pages:"교안 16쪽", fill:"내 블로그명", ph:"예: 내 몸을 살리는 착한 습관", text:"블로그명은 [{{v}}]으로 설정했는데 블로그의 주제에 맞는 이미지를 생성해줘. (사람과 제품 없이 블로그 주제, 카테고리 등에 맞는 이미지로 생성해줘. 비율 3:4)"},
+  {n:"6", title:"프로필 이미지 만들기", where:"제미나이 채팅창에 붙여넣기 → 갤러리에 저장 → 홈편집에서 <strong>프로필 사진</strong> 변경", pages:"교안 17쪽", fill:"내 블로그명", ph:"예: 내 몸을 살리는 착한 습관", text:"블로그명은 [{{v}}]으로 설정했는데 블로그의 주제에 맞는 이미지를 생성해줘. (사람과 제품 없이 블로그 주제, 카테고리 등에 맞는 프로필 이미지로 생성해줘. 비율 1:1)"}
+ ]},
+ {id:"setting", chip:"카테고리·설정", title:"카테고리와 글쓰기 설정", pages:"교안 18~26쪽", items:[
+  {note:"4번 결과의 카테고리 구성을 보고 카테고리를 추가해요. 텍스트만 입력할 수 있어요.", pages:"교안 18~19쪽"},
+  {note:"글쓰기 환경 설정은 교안 화면과 똑같이 맞춰요.", pages:"교안 20~21쪽"},
+  {note:"글쓰기 전에 카테고리, 주제, 검색 허용 여부를 선택해요.", pages:"교안 22~26쪽"}
+ ]},
+ {id:"write", chip:"노트북 글쓰기", title:"Gemini Notebook 블로그 글쓰기", pages:"교안 27~37쪽", items:[
+  {note:"새 노트를 만들고 제품설명서 파일과 제품사진 2~3장을 소스로 올려요.", pages:"교안 28~29쪽"},
+  {n:"7-1", choice:"제목 프롬프트 4개 중 하나만 골라요", title:"제목 추천 · 기본형 (추천)", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30~32쪽", text:"소스를 바탕으로 네이버 블로그에 쓸 제목을 추천해줘. 검색 유입형, 후기형, 호기심 유발형으로 나눠서 10개를 추천해줘. (특수기호 없음, 길지 않게)"},
+  {n:"7-2", title:"제목 추천 · 타깃 독자형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"이 제품을 가장 필요로 할 사람(타깃) 그룹을 정하고 각 타깃이 바로 클릭할 만한 블로그 제목 3개씩 추천해줘. (특수기호 없음, 길지 않게)"},
+  {n:"7-3", title:"제목 추천 · 상위노출형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"네이버 검색 상위 노출에 유리한 핵심 키워드, 효능 등을 넣어서 20자 이내 제목 10개 추천해줘. (특수기호 없음, 길지 않게)"},
+  {n:"7-4", title:"제목 추천 · 솔직 후기형", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기", pages:"교안 30쪽", text:"광고 티 안 나고 찐 사용 후기 느낌 나는 네이버 블로그 제목으로 7개 제안해줘. 'n주 써본 솔직후기', '정착 이유' 같은 느낌이 들어가게 추천해줘. (특수기호 없음, 길지 않게)"},
+  {n:"8-1", choice:"글쓰기 프롬프트 2개 중 하나만 골라요", title:"블로그 글 작성 · 한 줄 추가형", where:"스튜디오 → <strong>보고서</strong> → <strong>블로그 게시물</strong> 연필 → 기존 내용은 그대로 두고 <strong>맨 아래</strong>에 붙여넣기", pages:"교안 33~34쪽", fill:"고른 제목", ph:"7번에서 고른 제목을 붙여넣어요", text:"제목: {{v}}\n위 제목과 함께 네이버 블로그 로직에 최적화 된 글을 작성해줘"},
+  {n:"8-2", title:"블로그 글 작성 · 상세형", where:"스튜디오 → <strong>보고서</strong> → <strong>블로그 게시물</strong> 연필 → 맨 아래에 붙여넣기", pages:"교안 33~34쪽", fill:"고른 제목", ph:"7번에서 고른 제목을 붙여넣어요", text:WRITE_FULL},
+  {note:"완성된 블로그 글을 복사해 소스 추가 → 복사한 텍스트로 넣고, 글 소스와 제품사진만 선택해요.", pages:"교안 35~36쪽"},
+  {n:"9-1", choice:"이미지 프롬프트 2개 중 하나만 골라요", title:"블로그 이미지 8장 만들기 · 상세형", where:"스튜디오 → <strong>슬라이드</strong> 연필 → 붙여넣기", pages:"교안 36쪽", text:SLIDES},
+  {n:"9-2", title:"블로그 이미지 만들기 · 짧은형", where:"스튜디오 → <strong>슬라이드</strong> 연필 → 붙여넣기", pages:"교안 36쪽", text:"선택된 소스의 글의 맥락에 맞는 네이버 블로그용 이미지 슬라이드를 만들어줘. 슬라이드 형태로 만들어주고 텍스트는 없이 이미지만 있는 이미지 슬라이드 형태로 생성해줘"},
+  {note:"만들어진 슬라이드 이미지를 꾹 눌러 한 장씩 순서대로 저장해요.", pages:"교안 37쪽"}
+ ]},
+ {id:"upload", chip:"편집·업로드", title:"블로그 편집과 업로드", pages:"교안 38~47쪽", items:[
+  {note:"글을 블로그에 붙여넣고 제목은 제목란으로 옮겨요. ** 기호는 찾아서 지우고, 소제목은 인용구로 바꾼 뒤 이미지를 맥락에 맞게 넣어요.", pages:"교안 38~44쪽"},
+  {n:"10", title:"해시태그 만들기", where:"해당 제품 노트의 <strong>채팅창</strong>에 붙여넣기 → 결과를 블로그 <strong>태그 편집</strong>에 입력", pages:"교안 45~47쪽", text:"네이버블로그 검색용 해시태그를 8개를 만들어줘"},
+  {note:"발행 전에 지쿱 링크오더 링크를 본문에 넣었는지 확인해요.", pages:"교안 46쪽"}
+ ]},
+ {id:"shorts", chip:"쇼츠 영상", title:"블로그 글로 쇼츠 영상 만들기", pages:"교안 외 추가", items:[
+  {note:"소스에서 블로그 글 소스와 제품사진만 선택해요. 다른 소스가 켜져 있으면 글과 다른 내용이 섞여요.", pages:"8번, 9번을 마친 뒤 진행"},
+  {n:"11", title:"1분 쇼츠형 동영상 만들기", where:"스튜디오 → <strong>동영상 개요</strong> 연필(맞춤 설정) → <strong>짧은 버전</strong> 선택 → 붙여넣기", pages:"교안 외 추가", text:`선택된 블로그 글만을 바탕으로, 블로그 글과 동일한 내용의 1분 이내 쇼츠형 동영상을 만들어 주세요.
+
+[길이와 형식]
+- 전체 길이는 반드시 60초 이내로 만들어 주세요.
+- 나레이션은 한국어로, 전체 분량은 250자 안팎으로 짧게 써 주세요.
+- 장면은 5~6개, 한 장면은 10초 안팎으로 빠르게 넘어가게 해 주세요.
+- 가능하면 휴대폰으로 보기 좋은 세로 화면(9:16) 구도로 만들어 주세요.
+
+[장면 구성 순서]
+1. 첫 3초 후킹: 블로그 글 제목의 핵심 키워드를 넣은 질문 한 문장으로 시작해 주세요.
+2. 공감: 블로그 글 도입부의 고민과 상황을 한 문장으로 짚어 주세요.
+3. 핵심 포인트 3가지: 블로그 글의 소제목 순서 그대로, 포인트마다 한 문장씩 전달해 주세요.
+4. 활용 장면: 블로그 글에 나온 사용법이나 생활 속 활용 모습을 한 장면으로 보여 주세요.
+5. 마무리: 전체 내용을 한 문장으로 정리하고 "자세한 내용은 블로그 글에서 확인하세요"로 끝내 주세요.
+
+[내용 규칙]
+- 블로그 글에 없는 내용은 넣지 말고, 글의 흐름과 핵심 키워드를 그대로 유지해 주세요.
+- 과장된 표현이나 치료, 완치처럼 단정하는 표현은 쓰지 말아 주세요.
+- 말투는 친근하고 또렷한 해요체로 해 주세요.
+
+[화면 규칙]
+- 화면 글씨는 핵심 단어 위주로 크고 짧게, 한 화면에 15자 이내로 넣어 주세요.
+- 제품이 나오는 장면은 소스에 있는 제품사진의 형태와 100% 일치되게 해 주세요.
+- 전체적으로 밝고 신뢰감 있는 색감을 유지해 주세요.`}
+ ]}
+];
+
+let CAN_SHARE=false;
+try{CAN_SHARE=typeof navigator.share==="function"&&window.self===window.top}catch(e){}
+const KEY="blogclass-copied-v1";
+let copied=new Set();
+try{copied=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...copied]))}catch(e){}};
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const total=PARTS.reduce((a,p)=>a+p.items.filter(i=>i.n).length,0);
+
+function fillText(item,val,html){
+  const blank="                    ";
+  if(!item.fill) return html?esc(item.text):item.text;
+  const v=val.trim()||blank;
+  if(!html) return item.text.split("{{v}}").join(v);
+  return item.text.split("{{v}}").map(esc).join("<mark>"+esc(v)+"</mark>");
+}
+function updateCount(){document.getElementById("count").textContent="복사한 프롬프트 "+copied.size+" / "+total}
+
+const main=document.getElementById("main"),chips=document.getElementById("chips"),menu=document.getElementById("menu");
+chips.innerHTML='<a href="#home" data-go="">처음 화면</a><a href="#all" data-go="all">전체 보기</a>';
+menu.innerHTML='<a class="all" href="#all" data-go="all"><span>전체 보기<small>프롬프트 '+total+'개를 순서대로 모두 보기</small></span></a>';
+PARTS.forEach(p=>{
+  const idx=PARTS.indexOf(p)+1, ns=p.items.filter(i=>i.n).map(i=>i.n.split("-")[0]);
+  const range=ns.length?("프롬프트 "+(ns[0]===ns[ns.length-1]?ns[0]:ns[0]+"~"+ns[ns.length-1])+"번"):"화면 따라하기";
+  const a=document.createElement("a");a.href="#"+p.id;a.dataset.go=p.id;a.textContent=idx+" "+p.chip;chips.appendChild(a);
+  const m=document.createElement("a");m.href="#"+p.id;m.dataset.go=p.id;
+  m.innerHTML='<span class="no">'+idx+'</span><span>'+p.chip+'<small>'+range+' · '+p.pages+'</small></span>';menu.appendChild(m);
+  const sec=document.createElement("section");sec.className="part";sec.id="sec-"+p.id;
+  sec.innerHTML='<div class="part-head"><h2>'+p.title+'</h2><span class="pages">'+p.pages+'</span></div>';
+  const stack=document.createElement("div");stack.className="stack";sec.appendChild(stack);
+  p.items.forEach(it=>{
+    if(it.note){
+      const d=document.createElement("div");d.className="note";
+      d.innerHTML='<b>화면 따라하기</b><div>'+it.note+'<span class="pages">'+it.pages+'</span></div>';
+      stack.appendChild(d);return;
+    }
+    const id="p"+it.n, c=document.createElement("article");
+    c.className="card"+(copied.has(id)?" done":"");
+    c.innerHTML=(it.choice?'<p class="choice">'+it.choice+'</p>':'')+
+      '<div class="card-head"><div class="num">'+it.n+'</div><div><h3>'+it.title+'</h3><span class="pages">'+it.pages+'</span></div></div>'+
+      '<p class="where">'+it.where+'</p>'+
+      (it.fill?'<label class="fill" for="in-'+id+'">'+it.fill+'<input id="in-'+id+'" type="text" autocomplete="off" placeholder="'+it.ph+'"></label>':'')+
+      '<pre class="prompt" tabindex="0"></pre>'+
+      '<div class="actions"><button class="copy" type="button">'+it.n+'번 복사하기</button>'+(CAN_SHARE?'<button class="share" type="button">공유</button>':'')+'</div>';
+    const pre=c.querySelector("pre"),btn=c.querySelector(".copy"),inp=c.querySelector("input");
+    const draw=()=>{pre.innerHTML=fillText(it,inp?inp.value:"",true)};
+    draw(); if(inp) inp.addEventListener("input",draw);
+    btn.addEventListener("click",async()=>{
+      const t=fillText(it,inp?inp.value:"",false); let ok=false;
+      try{await navigator.clipboard.writeText(t);ok=true}catch(e){
+        const ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";
+        document.body.appendChild(ta);ta.select();try{ok=document.execCommand("copy")}catch(e2){}ta.remove();
+      }
+      if(ok){
+        copied.add(id);save();c.classList.add("done");updateCount();
+        btn.textContent="복사됐어요. 붙여넣기 하세요";btn.classList.add("ok");
+        setTimeout(()=>{btn.textContent=it.n+"번 복사하기";btn.classList.remove("ok")},2200);
+      }else{
+        btn.textContent="복사가 안 됐어요. 글을 길게 눌러 직접 복사해 주세요";
+      }
+    });
+    const sh=c.querySelector(".share");
+    if(sh) sh.addEventListener("click",async()=>{
+      const t=fillText(it,inp?inp.value:"",false);
+      try{await navigator.share({text:t})}catch(e){
+        if(e&&e.name==="AbortError")return;
+        sh.textContent="공유 안 됨";setTimeout(()=>{sh.textContent="공유"},2500);
+      }
+    });
+    stack.appendChild(c);
+  });
+  main.appendChild(sec);
+});
+updateCount();
+
+function show(id,scroll){
+  const ok=id==="all"||PARTS.some(p=>p.id===id);
+  document.body.classList.toggle("open",ok);
+  PARTS.forEach(p=>{document.getElementById("sec-"+p.id).hidden=!(id==="all"||p.id===id)});
+  document.querySelectorAll("[data-go]").forEach(a=>{a.setAttribute("aria-current",String(ok&&a.dataset.go===id))});
+  if(scroll){if(ok)chips.scrollIntoView({block:"start"});else window.scrollTo(0,0)}
+}
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-go]");if(!a)return;
+  e.preventDefault();const id=a.dataset.go;show(id,true);
+  try{location.hash=id||"home"}catch(err){}
+});
+window.addEventListener("hashchange",()=>show(location.hash.slice(1),false));
+show(location.hash.slice(1),false);
+
+const bigBtn=document.getElementById("bigBtn");
+let big=false;try{big=localStorage.getItem("blogclass-big")==="1"}catch(e){}
+const applyBig=()=>{document.documentElement.classList.toggle("big",big);bigBtn.textContent=big?"글자 보통":"글자 크게"};
+applyBig();
+bigBtn.addEventListener("click",()=>{big=!big;applyBig();try{localStorage.setItem("blogclass-big",big?"1":"0")}catch(e){}});
+document.getElementById("resetBtn").addEventListener("click",()=>{
+  copied.clear();save();updateCount();document.querySelectorAll(".card.done").forEach(c=>c.classList.remove("done"));
+});
+</script>
+</body>
+</html>
