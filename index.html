@@ -272,6 +272,18 @@ const PARTS = [
    {name:"제품명", files:[{label:"제품설명서", path:"materials/p01/manual.pdf", save:"제품명_제품설명서.pdf"},
                           {label:"제품사진 1", path:"materials/p01/photo1.jpg", save:"제품명_사진1.jpg"}]} */
 const MATERIALS = [
+ {name:"케어세르브 웨이브 플러스", files:[
+  {label:"제품사진 1", path:"materials/waveplus/photo1.png", thumb:"materials/waveplus/thumb_photo1.jpg", save:"케어세르브_웨이브플러스_사진1.png"},
+  {label:"제품사진 2", path:"materials/waveplus/photo2.jpg", thumb:"materials/waveplus/thumb_photo2.jpg", save:"케어세르브_웨이브플러스_사진2.jpg"},
+  {label:"사용 사진", path:"materials/waveplus/photo3.jpg", thumb:"materials/waveplus/thumb_photo3.jpg", save:"케어세르브_웨이브플러스_사용사진.jpg"}
+ ]},
+ {name:"씨케이 밸런스 파워", files:[
+  {label:"제품사진 (박스)", path:"materials/ckpower/photo1.png", thumb:"materials/ckpower/thumb_photo1.jpg", save:"씨케이밸런스파워_제품사진.png"},
+  {label:"연출 이미지 1", path:"materials/ckpower/scene1.png", thumb:"materials/ckpower/thumb_scene1.jpg", save:"씨케이밸런스파워_연출이미지1.png"},
+  {label:"연출 이미지 2", path:"materials/ckpower/scene2.png", thumb:"materials/ckpower/thumb_scene2.jpg", save:"씨케이밸런스파워_연출이미지2.png"},
+  {label:"연출 이미지 3", path:"materials/ckpower/scene3.png", thumb:"materials/ckpower/thumb_scene3.jpg", save:"씨케이밸런스파워_연출이미지3.png"},
+  {label:"실제 제품 사진", path:"materials/ckpower/real1.jpg", thumb:"materials/ckpower/thumb_real1.jpg", save:"씨케이밸런스파워_실제사진.jpg"}
+ ]}
 ];
 
 let CAN_SHARE=false;
@@ -361,7 +373,7 @@ updateCount();
     const c=document.createElement("article");c.className="card";
     const imgs=m.files.filter(isImg);
     c.innerHTML='<div class="card-head"><div class="num">'+(i+1)+'</div><div><h3>'+esc(m.name)+'</h3><span class="pages">파일 '+m.files.length+'개</span></div></div>'+
-      (imgs.length?'<div class="thumbs">'+imgs.map(f=>'<img src="'+f.path+'" alt="'+esc(m.name+" "+f.label)+'" loading="lazy">').join("")+'</div>':'')+
+      (imgs.length?'<div class="thumbs">'+imgs.map(f=>'<img src="'+(f.thumb||f.path)+'" alt="'+esc(m.name+" "+f.label)+'" loading="lazy">').join("")+'</div>':'')+
       '<ul class="files">'+m.files.map(f=>'<li><span>'+esc(f.label)+'</span><a href="'+f.path+'" download="'+esc(f.save)+'">받기</a></li>').join("")+'</ul>'+
       '<div class="actions"><button class="copy" type="button">모두 다운로드</button>'+(CAN_SHARE?'<button class="share" type="button">공유하기</button>':'')+'</div>';
     const dl=c.querySelector(".copy"),sh=c.querySelector(".share");
