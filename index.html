@@ -36,6 +36,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{font-size:17px;scroll-behavior:smooth;scroll-padding-top:70px}
 html.big{font-size:20px}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-text-size-adjust:100%}
@@ -103,6 +104,9 @@ nav.chips{margin-top:22px}
 .files{list-style:none;margin:0;padding:0}
 .files li{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.92rem;padding:8px 0;border-bottom:1px solid var(--line)}
 .files a{flex:none;color:var(--green);font-weight:700;text-decoration:none;white-space:nowrap;padding:4px 0}
+.find{font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:100%}
+.grp{font-size:.78rem;font-weight:700;color:var(--green)}
+details.more summary{cursor:pointer;font-size:.9rem;font-weight:600;color:var(--muted);padding:4px 0}
 </style>
 </head>
 <body>
@@ -123,6 +127,7 @@ nav.chips{margin-top:22px}
   <footer>빈칸이 있는 프롬프트는 칸에 내용을 적으면 자동으로 들어가요. 복사한 프롬프트는 번호가 초록색으로 바뀌어요.</footer>
 </div>
 
+<script src="samples-data.js"></script>
 <script>
 const SKILL_BODY = `Instructions
 역할 및 정체성
@@ -265,7 +270,8 @@ const PARTS = [
 - 제품이 나오는 장면은 소스에 있는 제품사진의 형태와 100% 일치되게 해 주세요.
 - 전체적으로 밝고 신뢰감 있는 색감을 유지해 주세요.`}
  ]},
- {id:"materials", chip:"실습용 자료", title:"실습용 자료", pages:"제품별 다운로드와 공유", sub:"제품설명서와 제품사진", items:[]}
+ {id:"materials", chip:"실습용 자료", title:"실습용 자료", pages:"제품별 다운로드와 공유", sub:"제품설명서와 제품사진", items:[]},
+ {id:"samples", chip:"전체 제품 자료실", title:"전체 제품 자료실 (샘플 실습용)", pages:"제품별 다운로드와 공유", sub:"제품 이미지와 설명서 모음", items:[]}
 ];
 
 /* 실습용 자료: 제품을 추가할 때 아래 목록에 한 줄씩 넣어요.
@@ -273,6 +279,7 @@ const PARTS = [
                           {label:"제품사진 1", path:"materials/p01/photo1.jpg", save:"제품명_사진1.jpg"}]} */
 const MATERIALS = [
  {name:"케어세르브 웨이브 플러스", files:[
+  {label:"제품설명서 (PDF)", path:"materials/waveplus/manual.pdf", save:"케어세르브_웨이브플러스_제품설명서.pdf"},
   {label:"제품사진 1", path:"materials/waveplus/photo1.png", thumb:"materials/waveplus/thumb_photo1.jpg", save:"케어세르브_웨이브플러스_사진1.png"},
   {label:"제품사진 2", path:"materials/waveplus/photo2.jpg", thumb:"materials/waveplus/thumb_photo2.jpg", save:"케어세르브_웨이브플러스_사진2.jpg"},
   {label:"사용 사진 1", path:"materials/waveplus/photo3.jpg", thumb:"materials/waveplus/thumb_photo3.jpg", save:"케어세르브_웨이브플러스_사용사진1.jpg"},
@@ -282,6 +289,7 @@ const MATERIALS = [
   {label:"여러 각도 이미지 2", path:"materials/waveplus/view2.jpg", thumb:"materials/waveplus/thumb_view2.jpg", save:"케어세르브_웨이브플러스_여러각도2.jpg"}
  ]},
  {name:"씨케이 밸런스 파워", files:[
+  {label:"제품설명서 (PDF)", path:"materials/ckpower/manual.pdf", save:"씨케이밸런스파워_제품설명서.pdf"},
   {label:"제품사진 (박스)", path:"materials/ckpower/photo1.png", thumb:"materials/ckpower/thumb_photo1.jpg", save:"씨케이밸런스파워_제품사진.png"},
   {label:"연출 이미지 1", path:"materials/ckpower/scene1.png", thumb:"materials/ckpower/thumb_scene1.jpg", save:"씨케이밸런스파워_연출이미지1.png"},
   {label:"연출 이미지 2", path:"materials/ckpower/scene2.png", thumb:"materials/ckpower/thumb_scene2.jpg", save:"씨케이밸런스파워_연출이미지2.png"},
@@ -289,17 +297,20 @@ const MATERIALS = [
   {label:"실제 제품 사진", path:"materials/ckpower/real1.jpg", thumb:"materials/ckpower/thumb_real1.jpg", save:"씨케이밸런스파워_실제사진.jpg"}
  ]},
  {name:"텔로메라 미스트", files:[
+  {label:"제품설명서 (PDF)", path:"materials/telomera-mist/manual.pdf", save:"텔로메라미스트_제품설명서.pdf"},
   {label:"제품사진 (박스와 용기)", path:"materials/telomera-mist/photo1.jpg", thumb:"materials/telomera-mist/thumb_photo1.jpg", save:"텔로메라미스트_제품사진1.jpg"},
   {label:"제품사진 (뚜껑 연 모습)", path:"materials/telomera-mist/photo2.png", thumb:"materials/telomera-mist/thumb_photo2.jpg", save:"텔로메라미스트_제품사진2.png"},
   {label:"제품사진 (용기)", path:"materials/telomera-mist/photo3.jpg", thumb:"materials/telomera-mist/thumb_photo3.jpg", save:"텔로메라미스트_제품사진3.jpg"},
   {label:"연출 이미지 (분사)", path:"materials/telomera-mist/scene1.png", thumb:"materials/telomera-mist/thumb_scene1.jpg", save:"텔로메라미스트_연출이미지.png"}
  ]},
  {name:"케어세르브 테라패치", files:[
+  {label:"제품설명서 (PDF)", path:"materials/tera-patch/manual.pdf", save:"케어세르브_테라패치_제품설명서.pdf"},
   {label:"제품사진 (박스와 패치)", path:"materials/tera-patch/photo1.png", thumb:"materials/tera-patch/thumb_photo1.jpg", save:"케어세르브_테라패치_제품사진1.png"},
   {label:"제품사진 (패치)", path:"materials/tera-patch/photo2.png", thumb:"materials/tera-patch/thumb_photo2.jpg", save:"케어세르브_테라패치_제품사진2.png"},
   {label:"사용 모습", path:"materials/tera-patch/use1.jpg", thumb:"materials/tera-patch/thumb_use1.jpg", save:"케어세르브_테라패치_사용모습.jpg"}
  ]},
  {name:"지쿱 디엘릭서 브라운 효소", files:[
+  {label:"제품설명서 (PDF)", path:"materials/elixir-brown/manual.pdf", save:"디엘릭서브라운효소_제품설명서.pdf"},
   {label:"제품사진 (박스와 스틱)", path:"materials/elixir-brown/photo1.jpg", thumb:"materials/elixir-brown/thumb_photo1.jpg", save:"디엘릭서브라운효소_제품사진.jpg"},
   {label:"상세 이미지 1", path:"materials/elixir-brown/detail1.jpg", thumb:"materials/elixir-brown/thumb_detail1.jpg", save:"디엘릭서브라운효소_상세이미지1.jpg"},
   {label:"상세 이미지 2", path:"materials/elixir-brown/detail2.jpg", thumb:"materials/elixir-brown/thumb_detail2.jpg", save:"디엘릭서브라운효소_상세이미지2.jpg"},
@@ -308,6 +319,7 @@ const MATERIALS = [
   {label:"실제 제품 사진 3", path:"materials/elixir-brown/real3.jpg", thumb:"materials/elixir-brown/thumb_real3.jpg", save:"디엘릭서브라운효소_실제사진3.jpg"}
  ]},
  {name:"제너럴 밸런스 식물성 MSM", files:[
+  {label:"제품설명서 (PDF)", path:"materials/plant-msm/manual.pdf", save:"제너럴밸런스_식물성MSM_제품설명서.pdf"},
   {label:"제품사진", path:"materials/plant-msm/photo1.png", thumb:"materials/plant-msm/thumb_photo1.jpg", save:"제너럴밸런스_식물성MSM_제품사진.png"}
  ]}
 ];
@@ -387,20 +399,27 @@ PARTS.forEach(p=>{
 });
 updateCount();
 
-(function(){
-  const stack=document.querySelector("#sec-materials .stack");
-  if(!MATERIALS.length){
+function renderMaterials(secId,list,compact){
+  const stack=document.querySelector("#sec-"+secId+" .stack");
+  if(!list.length){
     const d=document.createElement("div");d.className="empty";
     d.textContent="아직 등록된 제품이 없어요. 제품이 추가되면 여기에서 제품설명서와 제품사진을 받을 수 있어요.";
     stack.appendChild(d);return;
   }
-  const isImg=f=>/\.(jpe?g|png|webp|gif)$/i.test(f.path);
-  MATERIALS.forEach((m,i)=>{
-    const c=document.createElement("article");c.className="card";
-    const imgs=m.files.filter(isImg);
-    c.innerHTML='<div class="card-head"><div class="num">'+(i+1)+'</div><div><h3>'+esc(m.name)+'</h3><span class="pages">파일 '+m.files.length+'개</span></div></div>'+
-      (imgs.length?'<div class="thumbs">'+imgs.map(f=>'<img src="'+(f.thumb||f.path)+'" alt="'+esc(m.name+" "+f.label)+'" loading="lazy">').join("")+'</div>':'')+
-      '<ul class="files">'+m.files.map(f=>'<li><span>'+esc(f.label)+'</span><a href="'+f.path+'" download="'+esc(f.save)+'">받기</a></li>').join("")+'</ul>'+
+  if(compact){
+    const f=document.createElement("input");f.className="find";f.type="search";f.id="find-"+secId;f.placeholder="제품 이름으로 찾기";
+    f.setAttribute("aria-label","제품 이름으로 찾기");
+    f.addEventListener("input",()=>{const q=f.value.trim().replace(/\s+/g,"").toLowerCase();
+      stack.querySelectorAll("article").forEach(c=>{c.hidden=!!q&&!c.dataset.name.includes(q)})});
+    stack.appendChild(f);
+  }
+  list.forEach((m,i)=>{
+    const c=document.createElement("article");c.className="card";c.dataset.name=m.name.replace(/\s+/g,"").toLowerCase();
+    const imgs=m.files.filter(f=>f.thumb);
+    const fileList='<ul class="files">'+m.files.map(f=>'<li><span>'+esc(f.label)+'</span><a href="'+f.path+'" download="'+esc(f.save)+'">받기</a></li>').join("")+'</ul>';
+    c.innerHTML='<div class="card-head"><div class="num">'+(i+1)+'</div><div>'+(m.group?'<span class="grp">'+esc(m.group)+'</span>':'')+'<h3>'+esc(m.name)+'</h3><span class="pages">파일 '+m.files.length+'개</span></div></div>'+
+      (imgs.length?'<div class="thumbs">'+imgs.map(f=>'<img src="'+f.thumb+'" alt="'+esc(m.name+" "+f.label)+'" loading="lazy">').join("")+'</div>':'')+
+      (compact?'<details class="more"><summary>파일 하나씩 받기</summary>'+fileList+'</details>':fileList)+
       '<div class="actions"><button class="copy" type="button">모두 다운로드</button>'+(CAN_SHARE?'<button class="share" type="button">공유하기</button>':'')+'</div>';
     const dl=c.querySelector(".copy"),sh=c.querySelector(".share");
     dl.addEventListener("click",()=>{
@@ -420,7 +439,9 @@ updateCount();
     });
     stack.appendChild(c);
   });
-})();
+}
+renderMaterials("materials",MATERIALS,false);
+renderMaterials("samples",typeof SAMPLES==="undefined"?[]:SAMPLES,true);
 
 function show(id,scroll){
   const ok=id==="all"||PARTS.some(p=>p.id===id);
