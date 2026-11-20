@@ -1752,5 +1752,34 @@ const SAMPLES = [
     "save": "텔로메라미스트_이미지2.png"
    }
   ]
+ },
+ {
+  "name": "케어셀라 스킨이노베이터",
+  "group": "뷰티·생활",
+  "files": [
+   {
+    "label": "제품설명서 (PDF)",
+    "path": "samples/pdf/skin-innovator.pdf",
+    "save": "케어셀라스킨이노베이터_제품설명서.pdf"
+   },
+   {
+    "label": "이미지 1",
+    "path": "samples/x/skin-innovator_1.jpg",
+    "thumb": "samples/thumbs/x_skin-innovator_1.jpg",
+    "save": "케어셀라스킨이노베이터_이미지1.jpg"
+   },
+   {
+    "label": "이미지 2",
+    "path": "samples/x/skin-innovator_2.jpg",
+    "thumb": "samples/thumbs/x_skin-innovator_2.jpg",
+    "save": "케어셀라스킨이노베이터_이미지2.jpg"
+   },
+   {
+    "label": "이미지 3",
+    "path": "samples/x/skin-innovator_3.jpg",
+    "thumb": "samples/thumbs/x_skin-innovator_3.jpg",
+    "save": "케어셀라스킨이노베이터_이미지3.jpg"
+   }
+  ]
  }
 ];
